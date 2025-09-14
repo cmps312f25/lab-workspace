@@ -26,19 +26,51 @@ class MyApp extends StatelessWidget {
             ],
           ),
           body: SafeArea(
-            child: Center(
-              child: Text(
-                "World!",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 40,
-                  decoration: TextDecoration.none,
-                  fontFamily: "arial",
-                  fontWeight: FontWeight.w700,
-                  backgroundColor: Colors.yellow,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20.0, 48.0, 8.0, 8.0),
+                  child: Text(
+                    "World!",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 40,
+                      decoration: TextDecoration.none,
+                      fontFamily: "arial",
+                      fontWeight: FontWeight.w700,
+                      backgroundColor: Colors.yellow,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-                overflow: TextOverflow.ellipsis,
-              ),
+
+                Image.asset(
+                  "images/dog.jpeg",
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.cover,
+                ),
+
+                Card(
+                  shadowColor: Colors.red,
+                  elevation: 20,
+                  color: Colors.blue,
+                  child: SizedBox(
+                    width: 100,
+                    height: 100,
+                    child: Center(
+                      child: Image.asset(
+                        "images/dog.jpeg",
+                        width: 100,
+                        height: 100,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           floatingActionButton: FloatingActionButton(
