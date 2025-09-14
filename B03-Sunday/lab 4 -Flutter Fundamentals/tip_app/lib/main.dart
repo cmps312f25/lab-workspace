@@ -24,7 +24,43 @@ class MyApp extends StatelessWidget {
               Icon(Icons.shopping_cart, color: Colors.red),
             ],
           ),
-          body: Center(child: Text("Hello")),
+          body: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ListTile(
+                  leading: Icon(Icons.account_circle, size: 50),
+                  title: Text("Abdulahi Hassen"),
+                  subtitle: Text("Student"),
+                  trailing: Icon(Icons.edit),
+                ),
+                Image.asset("images/happy_cat.jpg"),
+                Text(
+                  "Hello",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                    backgroundColor: Colors.yellow,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                // SizedBox(height: 40, child: Container(color: Colors.red)),
+                Card(
+                  color: Colors.amber,
+                  elevation: 10,
+                  child: Text(
+                    "I am Abdulahi Hassen",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      backgroundColor: Colors.red,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {},
             backgroundColor: Colors.red,
