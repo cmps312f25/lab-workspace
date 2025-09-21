@@ -15,6 +15,7 @@ class _MyAppState extends State<MyApp> {
   int _tipPercentage = 30;
   double _billAmount = 0.0;
   double totalBillAmount = 0.0;
+  bool _roundTip = false;
 
   @override
   Widget build(BuildContext context) {
@@ -83,18 +84,34 @@ class _MyAppState extends State<MyApp> {
               ),
               Divider(),
               SizedBox(height: 30),
-              RadioGroup<int>(
-                onChanged: (value) {
-                  _tipPercentage = value!;
-                  calculateBill();
-                },
-                groupValue: _tipPercentage,
-                child: Column(
-                  children: [
-                    RadioListTile(value: 10, title: Text("10")),
-                    RadioListTile(value: 20, title: Text("20")),
-                    RadioListTile(value: 30, title: Text("30")),
-                  ],
+              Card.outlined(
+                elevation: 10,
+                child: RadioGroup<int>(
+                  onChanged: (value) {
+                    _tipPercentage = value!;
+                    calculateBill();
+                  },
+                  groupValue: _tipPercentage,
+                  child: Column(
+                    children: [
+                      RadioListTile(value: 10, title: Text("10")),
+                      RadioListTile(value: 20, title: Text("20")),
+                      RadioListTile(value: 30, title: Text("30")),
+                    ],
+                  ),
+                ),
+              ),
+
+              SizedBox(height: 30),
+              Card.filled(
+                elevation: 10,
+                child: SwitchListTile(
+                  value: _roundTip,
+                  onChanged: (value) {
+                    _roundTip = value;
+                    calculateBill();
+                  },
+                  title: Text("Round Up Tip"),
                 ),
               ),
             ],
@@ -111,7 +128,7 @@ class _MyAppState extends State<MyApp> {
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
-                "Bill Amount : ${_billAmount + _billAmount * _tipPercentage / 100}",
+                "Bill Amount : $totalBillAmount",
               ),
             ),
           ),
@@ -123,6 +140,10 @@ class _MyAppState extends State<MyApp> {
   void calculateBill() {
     setState(() {
       totalBillAmount = _billAmount + _billAmount * _tipPercentage / 100;
+      if (_roundTip) {
+        totalBillAmount = totalBillAmount.ceilToDouble();
+        debugPrint(totalBillAmount.toString());
+      }
     });
   }
 }
