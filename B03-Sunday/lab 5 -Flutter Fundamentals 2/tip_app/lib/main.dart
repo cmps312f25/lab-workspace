@@ -12,7 +12,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String title = "Hello";
+  double _billAmount = 0.0;
+  double _totalBill = 0;
+  int _tipPercentage = 20;
+
+  void calculateBillAmount() {
+    setState(() {
+      _totalBill = _billAmount + _billAmount * _tipPercentage / 100;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,27 +37,65 @@ class _MyAppState extends State<MyApp> {
         backgroundColor: Colors.red,
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SizedBox(
-          width: double.infinity,
-          child: Column(
-            // stretched
-            children: [
-              SizedBox(height: 40),
-              ..._tipInput(),
-              Text(
-                "Select Tip Percentage",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+      body: SizedBox(
+        width: double.infinity,
+        child: Column(
+          // stretched
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                SizedBox(height: 40),
+                ..._tipInput(),
+                Text(
+                  "Select Tip Percentage",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Divider(),
+                Card.outlined(
+                  margin: EdgeInsets.all(10),
+                  elevation: 10,
+                  // color: Colors.lightBlue,
+                  child: RadioGroup<int>(
+                    groupValue: _tipPercentage,
+                    onChanged: (value) {
+                      _tipPercentage = value!;
+                      calculateBillAmount();
+                    },
+                    child: Column(
+                      children: [
+                        RadioListTile(value: 10, title: Text("10")),
+                        RadioListTile(value: 20, title: Text("20")),
+                        RadioListTile(value: 30, title: Text("30")),
+                      ],
+                    ),
+                  ),
+                ),
+                // Spacer(flex: 1),
+              ],
+            ),
+            Container(
+              width: double.infinity,
+              height: 80,
+              color: Colors.red,
+              child: Center(
+                child: Text(
+                  "Amount $_totalBill",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-              Divider(),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -67,7 +113,16 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       SizedBox(height: 40),
-      TextField(decoration: InputDecoration(border: OutlineInputBorder())),
+      Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: TextField(
+          decoration: InputDecoration(border: OutlineInputBorder()),
+          onChanged: (value) {
+            _billAmount = int.tryParse(value)?.toDouble() ?? 0.0;
+            calculateBillAmount();
+          },
+        ),
+      ),
       SizedBox(height: 10),
     ];
   }
