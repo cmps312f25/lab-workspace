@@ -15,10 +15,14 @@ class _MyAppState extends State<MyApp> {
   double _billAmount = 0.0;
   double _totalBill = 0;
   int _tipPercentage = 20;
+  bool _roundUp = false;
 
   void calculateBillAmount() {
     setState(() {
       _totalBill = _billAmount + _billAmount * _tipPercentage / 100;
+      if (_roundUp) {
+        _totalBill = _totalBill.ceilToDouble();
+      }
     });
   }
 
@@ -77,6 +81,16 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
                 // Spacer(flex: 1),
+                Card.outlined(
+                  child: SwitchListTile(
+                    value: _roundUp,
+                    onChanged: (value) {
+                      _roundUp = value;
+                      calculateBillAmount();
+                    },
+                    title: Text("Round Up Tip"),
+                  ),
+                ),
               ],
             ),
             Container(
