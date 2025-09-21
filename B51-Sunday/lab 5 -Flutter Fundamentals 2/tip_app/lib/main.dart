@@ -14,13 +14,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: Scaffold(appBar: _appBar(), 
-      body: _body()
-      ),
+      child: Scaffold(appBar: _appBar(), body: _body()),
     );
   }
 
-  AppBar _appBar() {
+  PreferredSizeWidget? _appBar() {
     return AppBar(
       title: Text(
         "Tip App",
@@ -36,6 +34,27 @@ class _MyAppState extends State<MyApp> {
   }
 
   Widget _body() {
-    return Container(child: Text("This is the body"));
+    return Container(
+      width: double.infinity,
+      child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 40.0, bottom: 20.0),
+            child: Text(
+              "Tip Calculator",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Colors.red,
+              ),
+            ),
+          ),
+      
+      
+        ],
+      ),
+    );
   }
 }
