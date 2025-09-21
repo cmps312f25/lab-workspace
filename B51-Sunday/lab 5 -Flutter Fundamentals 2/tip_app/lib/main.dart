@@ -51,8 +51,25 @@ class _MyAppState extends State<MyApp> {
               ),
             ),
           ),
-      
-      
+
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: "Bill Amount",
+                border: OutlineInputBorder(),
+              ),
+            ),
+          ),
+          Text(
+            "Tip Calculator",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+              color: Colors.red,
+            ),
+          ),
         ],
       ),
     );
