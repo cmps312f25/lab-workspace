@@ -8,10 +8,16 @@ class TipCalculator extends StatefulWidget {
 }
 
 class _TipCalculatorState extends State<TipCalculator> {
+  String title = "";
+  int counter = 0;
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(
+      children: [
+        Text("Tip Calculator", style: TextStyle(fontSize: 40)),
+        
+        ],
+    );
   }
 }
-
-// stfl
