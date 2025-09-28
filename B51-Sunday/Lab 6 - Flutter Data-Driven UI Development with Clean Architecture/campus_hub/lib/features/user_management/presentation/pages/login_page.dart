@@ -23,15 +23,43 @@ class LoginPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Icon(Icons.school, size: 100, color: Colors.blue),
           Text(
-            'Login Page - Design Implementation Needed',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            'Campus Hub',
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: Colors.blue,
+            ),
           ),
           SizedBox(height: 20),
-          Text(
-            'You should implement the login UI here',
-            style: TextStyle(color: Colors.grey[600]),
+          Text('Tutoring Platform', style: TextStyle(color: Colors.grey[600])),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: TextFormField(
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: 'Email',
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.email),
+                labelStyle: TextStyle(color: Colors.blue),
+              ),
+            ),
           ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+            child: TextFormField(
+              keyboardType: TextInputType.visiblePassword,
+              decoration: InputDecoration(
+                labelText: 'Password',
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.lock),
+                labelStyle: TextStyle(color: Colors.blue),
+              ),
+            ),
+          ),
+          SizedBox(height: 20),
+          Text("Select Your Role"),
         ],
       ),
     );
