@@ -28,6 +28,6 @@ class ProfileAvatar extends StatelessWidget {
     // - Handle empty names gracefully
     // - Use radius for sizing
 
-    return Placeholder(fallbackHeight: radius * 2, fallbackWidth: radius * 2);
+    return CircleAvatar(radius: 35, backgroundImage: NetworkImage(imageUrl!));
   }
 }

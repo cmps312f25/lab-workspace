@@ -1,3 +1,4 @@
+import 'package:campus_hub/features/user_management/presentation/widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
 
 /// A reusable profile header widget with avatar and user information
@@ -36,6 +37,35 @@ class ProfileHeader extends StatelessWidget {
     // - Add proper spacing between elements
     // - Use Expanded for the text column to take available space
 
-    return Placeholder(fallbackHeight: 150, fallbackWidth: 350);
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      color: themeColor,
+      margin: EdgeInsets.all(20),
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Row(
+          children: [
+            CircleAvatar(radius: 35, backgroundImage: NetworkImage(avatarUrl!)),
+            SizedBox(width: 20),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  name,
+                  style: TextStyle(
+                    color: Colors.blue[700],
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(email),
+                additionalInfo!,
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
