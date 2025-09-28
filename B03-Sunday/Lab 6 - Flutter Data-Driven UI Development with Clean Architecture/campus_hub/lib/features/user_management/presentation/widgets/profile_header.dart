@@ -37,6 +37,7 @@ class ProfileHeader extends StatelessWidget {
     // - Use Expanded for the text column to take available space
 
     return Card(
+      margin: EdgeInsets.all(15),
       color: themeColor,
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),

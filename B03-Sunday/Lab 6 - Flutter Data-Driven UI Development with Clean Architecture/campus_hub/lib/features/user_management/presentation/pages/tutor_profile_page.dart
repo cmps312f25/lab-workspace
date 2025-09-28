@@ -1,3 +1,5 @@
+import 'package:campus_hub/features/user_management/presentation/widgets/info_card.dart';
+import 'package:campus_hub/features/user_management/presentation/widgets/profile_header.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/domain/enums/user_role.dart';
 import '../../domain/entities/student.dart';
@@ -90,10 +92,43 @@ class _TutorProfilePageState extends State<TutorProfilePage> {
     // - StatItem for displaying statistics in a dashboard format
     // - ListItem for individual session items
 
-    return Center(
+    return SingleChildScrollView(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          ProfileHeader(
+            name: tutor!.name,
+            email: tutor!.email,
+            themeColor: Colors.green[100]!,
+            avatarUrl: tutor!.avatarUrl,
+            subtitle: '${tutor!.major} - Year ${tutor!.year}',
+          ),
+          SizedBox(height: 20),
+
+          InfoCard(
+            title: "Recent Sessions",
+            icon: Icons.recommend,
+            child: Column(
+              children: [
+                ...tutorSessions.map(
+                  (session) => Container(
+                    color: Colors.grey[100],
+                    child: Column(
+                      children: [
+                        Divider(height: 10, color: Colors.white),
+                        ListTile(
+                          leading: Icon(Icons.file_copy_sharp),
+                          title: Text(session.courseId),
+                          subtitle: Text("Session ID: ${session.id}"),
+                          trailing: Icon(Icons.arrow_forward_ios),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           Text(
             'Tutor Profile Page - Design Implementation Needed',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
