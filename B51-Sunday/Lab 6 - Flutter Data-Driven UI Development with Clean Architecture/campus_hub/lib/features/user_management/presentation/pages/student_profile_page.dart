@@ -1,3 +1,4 @@
+import 'package:campus_hub/features/user_management/presentation/widgets/info_card.dart';
 import 'package:campus_hub/features/user_management/presentation/widgets/profile_header.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/domain/enums/user_role.dart';
@@ -106,6 +107,36 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
           additionalInfo: Text(
             'Major: ${student!.major} - Year ${student!.year}',
             style: TextStyle(color: Colors.blue[700]),
+          ),
+        ),
+        InfoCard(
+          icon: Icons.school,
+          title: 'Struggling Courses',
+          child: Column(
+            children: [
+              ...student!.strugglingCourses
+                  .map(
+                    (course) => Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        color: Colors.blue[50]!,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Icon(Icons.school),
+                              SizedBox(width: 10),
+                              Text(course),
+                              Icon(Icons.arrow_forward_ios),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                  .toList(),
+            ],
           ),
         ),
       ],

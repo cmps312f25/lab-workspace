@@ -34,6 +34,6 @@ class InfoCard extends StatelessWidget {
     // - Display the child widget as content
     // - Use padding parameter or default to 20px all around
 
-    return Placeholder(fallbackHeight: 200, fallbackWidth: 300);
+    return Column(children: [child]);
   }
 }
