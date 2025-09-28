@@ -1,0 +1,194 @@
+[
+  {
+    "code": "ENGL101",
+    "title": "English Composition I",
+    "deptCode": "ENGL",
+    "credits": 3,
+    "level": "freshman"
+  },
+  {
+    "code": "CMPS101",
+    "title": "Introduction to Computing",
+    "deptCode": "CMPS",
+    "credits": 3,
+    "level": "freshman"
+  },
+  {
+    "code": "CMPS151",
+    "title": "Programming I (Dart/Intro)",
+    "deptCode": "CMPS",
+    "credits": 3,
+    "level": "freshman",
+    "prerequisites": [
+      "CMPS101"
+    ]
+  },
+  {
+    "code": "CMPS251",
+    "title": "Data Structures",
+    "deptCode": "CMPS",
+    "credits": 3,
+    "level": "sophomore",
+    "prerequisites": [
+      "CMPS151"
+    ]
+  },
+  {
+    "code": "CMPS312",
+    "title": "Mobile Application Development",
+    "deptCode": "CMPS",
+    "credits": 3,
+    "level": "junior",
+    "prerequisites": [
+      "CMPS251"
+    ]
+  },
+  {
+    "code": "CMPS485",
+    "title": "Software Engineering",
+    "deptCode": "CMPS",
+    "credits": 3,
+    "level": "senior",
+    "prerequisites": [
+      "CMPS312"
+    ]
+  },
+  {
+    "code": "CMPS490",
+    "title": "Senior Project",
+    "deptCode": "CMPS",
+    "credits": 3,
+    "level": "senior",
+    "prerequisites": [
+      "CMPS485"
+    ]
+  },
+  {
+    "code": "STAT210",
+    "title": "Introduction to Statistics",
+    "deptCode": "STAT",
+    "credits": 3,
+    "level": "sophomore"
+  },
+  {
+    "code": "MATH221",
+    "title": "Calculus II",
+    "deptCode": "MATH",
+    "credits": 3,
+    "level": "freshman"
+  },
+  {
+    "code": "MATH321",
+    "title": "Calculus III",
+    "deptCode": "MATH",
+    "credits": 3,
+    "level": "sophomore",
+    "prerequisites": [
+      "MATH221"
+    ]
+  },
+  {
+    "code": "MATH441",
+    "title": "Advanced Calculus",
+    "deptCode": "MATH",
+    "credits": 3,
+    "level": "senior",
+    "prerequisites": [
+      "MATH321"
+    ]
+  },
+  {
+    "code": "MATH450",
+    "title": "Mathematical Analysis",
+    "deptCode": "MATH",
+    "credits": 3,
+    "level": "senior",
+    "prerequisites": [
+      "MATH441"
+    ]
+  },
+  {
+    "code": "PHYS110",
+    "title": "Physics I",
+    "deptCode": "PHYS",
+    "credits": 3,
+    "level": "freshman"
+  },
+  {
+    "code": "PHYS220",
+    "title": "Physics II",
+    "deptCode": "PHYS",
+    "credits": 3,
+    "level": "sophomore",
+    "prerequisites": [
+      "PHYS110"
+    ]
+  },
+  {
+    "code": "CHEM101",
+    "title": "General Chemistry I",
+    "deptCode": "CHEM",
+    "credits": 3,
+    "level": "freshman"
+  },
+  {
+    "code": "CHEM201",
+    "title": "Organic Chemistry I",
+    "deptCode": "CHEM",
+    "credits": 3,
+    "level": "sophomore",
+    "prerequisites": [
+      "CHEM101"
+    ]
+  },
+  {
+    "code": "CHEM301",
+    "title": "Physical Chemistry",
+    "deptCode": "CHEM",
+    "credits": 3,
+    "level": "junior",
+    "prerequisites": [
+      "CHEM201"
+    ]
+  },
+  {
+    "code": "CHEM401",
+    "title": "Advanced Inorganic Chemistry",
+    "deptCode": "CHEM",
+    "credits": 3,
+    "level": "senior",
+    "prerequisites": [
+      "CHEM301"
+    ]
+  },
+  {
+    "code": "CHEM420",
+    "title": "Analytical Chemistry",
+    "deptCode": "CHEM",
+    "credits": 3,
+    "level": "senior",
+    "prerequisites": [
+      "CHEM301"
+    ]
+  },
+  {
+    "code": "ENGR210",
+    "title": "Engineering Probability & Statistics",
+    "deptCode": "ENGR",
+    "credits": 3,
+    "level": "sophomore",
+    "prerequisites": [
+      "MATH221"
+    ]
+  },
+  {
+    "code": "ENGL202",
+    "title": "English Composition II",
+    "deptCode": "ENGL",
+    "credits": 3,
+    "level": "sophomore",
+    "prerequisites": [
+      "ENGL101"
+    ]
+  }
+]

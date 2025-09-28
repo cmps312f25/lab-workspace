@@ -1,0 +1,50 @@
+[
+  {
+    "id": "b1",
+    "sessionId": "9b23c852",
+    "studentId": "202205001",
+    "status": "confirmed",
+    "bookedAt": "2025-10-01T10:00:00Z",
+    "reason": "Need help with Flutter state management for final project"
+  },
+  {
+    "id": "b2",
+    "sessionId": "106b44f6",
+    "studentId": "202305014",
+    "status": "pending",
+    "bookedAt": "2025-10-01T10:10:00Z",
+    "reason": "Struggling with hypothesis testing concepts"
+  },
+  {
+    "id": "b3",
+    "sessionId": "500db71d",
+    "studentId": "202405231",
+    "status": "attended",
+    "bookedAt": "2025-10-02T12:00:00Z",
+    "reason": "Need calculus foundation for chemistry calculations"
+  },
+  {
+    "id": "b4",
+    "sessionId": "00e58cd3",
+    "studentId": "202305014",
+    "status": "cancelled",
+    "bookedAt": "2025-10-02T12:30:00Z",
+    "reason": "Schedule conflict with lab session"
+  },
+  {
+    "id": "b5",
+    "sessionId": "f08a1312",
+    "studentId": "202405231",
+    "status": "confirmed",
+    "bookedAt": "2025-10-03T09:45:00Z",
+    "reason": "Struggling with chemical equations and lab procedures"
+  },
+  {
+    "id": "b6",
+    "sessionId": "500db71d",
+    "studentId": "202205001",
+    "status": "attended",
+    "bookedAt": "2025-10-04T14:20:00Z",
+    "reason": "Need help with derivatives and integrals"
+  }
+]

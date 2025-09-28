@@ -1,0 +1,16 @@
+[
+  {
+    "id": "r1",
+    "bookingId": "b3",
+    "rating": 4.5,
+    "comment": "Very clear explanations!",
+    "createdAt": "2025-10-03T13:00:00Z"
+  },
+  {
+    "id": "r2",
+    "bookingId": "b1",
+    "rating": 5.0,
+    "comment": "Great session on data structures.",
+    "createdAt": "2025-10-05T11:30:00Z"
+  }
+]
