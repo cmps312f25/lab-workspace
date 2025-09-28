@@ -95,11 +95,68 @@ class _TutorProfilePageState extends State<TutorProfilePage> {
     return Column(
       // mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ProfileHeader(name: name, email: email, themeColor: themeColor)
-      InfoCard(title: title, child: child)
-      StatItem(icon: icon, value: value, label: label)  
-      ListItem(session: session)
-        ],
+        ProfileHeader(
+          name: tutor!.name,
+          email: tutor!.email,
+          themeColor: Colors.blue[50]!,
+          subtitle: 'Student',
+          avatarUrl: tutor!.avatarUrl,
+          additionalInfo: Text(
+            'Major: ${tutor!.major} - Year ${tutor!.year}',
+            style: TextStyle(color: Colors.blue[700]),
+          ),
+        ),
+
+        InfoCard(
+          icon: Icons.school,
+          title: 'Tutoring Courses',
+          padding: EdgeInsets.all(20),
+          titleColor: Colors.green[700],
+          iconColor: Colors.green,
+          child: Column(
+            children: [
+              Text(tutor!.tutoringCourses.join(', ')),
+            ],
+          ),
+        ),
+
+        Text(
+          'Tutor Profile Page - Design Implementation Needed',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 20),
+        Text('Tutor: ${tutor!.name}', style: TextStyle(fontSize: 16)),
+        Text(
+          'Email: ${tutor!.email}',
+          style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+        ),
+        Text(
+          'Major: ${tutor!.major} - Year ${tutor!.year}',
+          style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+        ),
+        if (tutor!.bio != null)
+          Text(
+            'Bio: ${tutor!.bio}',
+            style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+          ),
+        SizedBox(height: 20),
+        Text(
+          'Tutoring Courses: ${tutor!.tutoringCourses.length}',
+          style: TextStyle(fontSize: 14),
+        ),
+        Text(
+          'Average Rating: ${tutor!.averageRating.toStringAsFixed(1)}',
+          style: TextStyle(fontSize: 14),
+        ),
+        Text(
+          'Total Sessions: ${tutorSessions.length}',
+          style: TextStyle(fontSize: 14),
+        ),
+        Text(
+          'Total Reviews: ${tutorReviews.length}',
+          style: TextStyle(fontSize: 14),
+        ),
+      ],
     );
   }
 }
