@@ -128,11 +128,19 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
           child: Column(
             children: [
               ...courseRecommendations.map((course) {
-                return ListTile(
-                  leading: Icon(Icons.book, color: Colors.blue),
-                  title: Text(course.code),
-                  subtitle: Text(course.title),
-                  trailing: Chip(label: Text(course.credits.toString())),
+                return Column(
+                  children: [
+                    ListTile(
+                      leading: Icon(Icons.book, color: Colors.blue),
+                      title: Text(course.code),
+                      subtitle: Text(course.title),
+                      trailing: Chip(
+                        label: Text(course.credits.toString()),
+                        backgroundColor: Colors.red[100]!,
+                      ),
+                    ),
+                    Divider(height: 10, color: Colors.red),
+                  ],
                 );
               }),
             ],
