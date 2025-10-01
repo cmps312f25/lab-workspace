@@ -36,6 +36,34 @@ class ProfileHeader extends StatelessWidget {
     // - Add proper spacing between elements
     // - Use Expanded for the text column to take available space
 
-    return Placeholder(fallbackHeight: 150, fallbackWidth: 350);
+    return Card(
+      color: themeColor,
+      elevation: 4,
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Row(
+          children: [
+            CircleAvatar(
+              radius: 40,
+              backgroundImage: NetworkImage(
+                avatarUrl ?? 'https://via.placeholder.com/150',
+              ),
+            ),
+            SizedBox(width: 20),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  name,
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                Text(email),
+                Text(subtitle ?? "No subtitle available"),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

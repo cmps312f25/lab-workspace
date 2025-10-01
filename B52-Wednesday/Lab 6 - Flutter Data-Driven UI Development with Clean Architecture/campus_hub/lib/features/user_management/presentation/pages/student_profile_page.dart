@@ -1,3 +1,4 @@
+import 'package:campus_hub/features/user_management/presentation/widgets/profile_header.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/domain/enums/user_role.dart';
 import '../../domain/entities/student.dart';
@@ -93,48 +94,53 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
     // - ListItem for individual course and booking items
     // - StatItem if you want to show any statistics
 
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Student Profile Page - Design Implementation Needed',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+    return Column(
+      // mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ProfileHeader(
+          name: student!.name,
+          email: student!.email,
+          themeColor: Colors.blue[100]!,
+          avatarUrl: student!.avatarUrl,
+          subtitle: '${student!.major} - Year ${student!.year}',
+        ),
+        Text(
+          'Student Profile Page - Design Implementation Needed',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 20),
+        Text('Student: ${student!.name}', style: TextStyle(fontSize: 16)),
+        Text(
+          'Email: ${student!.email}',
+          style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+        ),
+        Text(
+          'Major: ${student!.major} - Year ${student!.year}',
+          style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+        ),
+        SizedBox(height: 20),
+        Text(
+          'Struggling Courses: ${student!.strugglingCourses.length}',
+          style: TextStyle(fontSize: 14),
+        ),
+        Text(
+          'Course Recommendations: ${courseRecommendations.length}',
+          style: TextStyle(fontSize: 14),
+        ),
+        Text(
+          'Recent Bookings: ${studentBookings.length}',
+          style: TextStyle(fontSize: 14),
+        ),
+        SizedBox(height: 20),
+        Text(
+          '💡 Tip: Use the common widgets from the widgets/ directory!',
+          style: TextStyle(
+            fontSize: 12,
+            color: Colors.blue,
+            fontStyle: FontStyle.italic,
           ),
-          SizedBox(height: 20),
-          Text('Student: ${student!.name}', style: TextStyle(fontSize: 16)),
-          Text(
-            'Email: ${student!.email}',
-            style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-          ),
-          Text(
-            'Major: ${student!.major} - Year ${student!.year}',
-            style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-          ),
-          SizedBox(height: 20),
-          Text(
-            'Struggling Courses: ${student!.strugglingCourses.length}',
-            style: TextStyle(fontSize: 14),
-          ),
-          Text(
-            'Course Recommendations: ${courseRecommendations.length}',
-            style: TextStyle(fontSize: 14),
-          ),
-          Text(
-            'Recent Bookings: ${studentBookings.length}',
-            style: TextStyle(fontSize: 14),
-          ),
-          SizedBox(height: 20),
-          Text(
-            '💡 Tip: Use the common widgets from the widgets/ directory!',
-            style: TextStyle(
-              fontSize: 12,
-              color: Colors.blue,
-              fontStyle: FontStyle.italic,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
