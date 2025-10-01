@@ -34,6 +34,32 @@ class InfoCard extends StatelessWidget {
     // - Display the child widget as content
     // - Use padding parameter or default to 20px all around
 
-    return Placeholder(fallbackHeight: 200, fallbackWidth: 300);
+    return Column(
+      children: [
+        Row(
+          children: [
+            if (icon != null)
+              Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: (iconColor ?? Colors.blue).withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(icon, color: iconColor ?? Colors.blue),
+              ),
+            if (icon != null) SizedBox(width: 10),
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: titleColor ?? Colors.black,
+              ),
+            ),
+          ],
+        ),
+        child,
+      ],
+    );
   }
 }

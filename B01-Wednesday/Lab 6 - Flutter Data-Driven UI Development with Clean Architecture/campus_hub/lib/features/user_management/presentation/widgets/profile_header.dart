@@ -10,6 +10,7 @@ class ProfileHeader extends StatelessWidget {
   final String? subtitle;
   final String? avatarUrl;
   final Color themeColor;
+  final Color? textColor;
   final Widget? additionalInfo;
 
   const ProfileHeader({
@@ -20,6 +21,7 @@ class ProfileHeader extends StatelessWidget {
     this.avatarUrl,
     required this.themeColor,
     this.additionalInfo,
+    this.textColor,
   });
 
   @override
@@ -36,6 +38,46 @@ class ProfileHeader extends StatelessWidget {
     // - Add proper spacing between elements
     // - Use Expanded for the text column to take available space
 
-    return Placeholder(fallbackHeight: 150, fallbackWidth: 350);
+    return Card(
+      color: themeColor,
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Row(
+          children: [
+            CircleAvatar(
+              radius: 35,
+              backgroundImage: NetworkImage(
+                avatarUrl ??
+                    'https://www.gravatar.com/avatar/placeholder?d=mp&s=200',
+              ),
+            ),
+            SizedBox(width: 20),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  name,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: textColor,
+                  ),
+                ),
+                Text(
+                  email,
+                  style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+                ),
+                if (subtitle != null)
+                  Text(
+                    subtitle!,
+                    style: TextStyle(fontSize: 14, color: textColor),
+                  ),
+                if (additionalInfo != null) additionalInfo!,
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
