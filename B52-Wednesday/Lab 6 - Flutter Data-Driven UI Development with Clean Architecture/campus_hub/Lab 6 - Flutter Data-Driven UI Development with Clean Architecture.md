@@ -28,7 +28,6 @@ Below you have everything you need to complete the lab:
 
 **Remember**: This lab bridges the gap between learning Flutter fundamentals and building real applications. Take your time, follow the phases, and don't hesitate to experiment with your designs! At any stage if you have any questions please ask.
 
-
 ## What's Already Implemented ✅
 
 ### Navigation System
@@ -87,6 +86,7 @@ This is your first taste of **full-stack Flutter development** - where UI meets 
 **Requirements**: Replicate the student profile design above showing profile header, struggling courses, course recommendations, and booking history.
 
 **Available Data**:
+
 - `student`: Student object with profile information
 - `courseRecommendations`: List `<Course>` - recommended courses
 - `studentBookings`: List `<Booking>` - student's booking history
@@ -100,6 +100,7 @@ This is your first taste of **full-stack Flutter development** - where UI meets 
 **Requirements**: Replicate the tutor profile design above showing profile header, tutoring courses, statistics dashboard, and recent sessions.
 
 **Available Data**:
+
 - `tutor`: Student object (with role=tutor) containing tutor information
 - `tutorSessions`: List `<Session>` - sessions created by this tutor
 - `tutorReviews`: List `<Review>` - reviews for this tutor
@@ -113,6 +114,7 @@ This is your first taste of **full-stack Flutter development** - where UI meets 
 **Requirements**: Replicate the admin profile design above showing profile header, system statistics dashboard, permissions, and admin actions.
 
 **Available Data**:
+
 - `admin`: Admin object containing admin information and permissions
 - `systemAnalytics`: Map<String, dynamic> containing:
   - `systemAnalytics['users']['totalUsers']` - total number of users
@@ -149,15 +151,19 @@ For detailed data structure examples, check the JSON files in `assets/json/` dir
 ## 🛠️ Implementation Strategy
 
 ### Phase 1: Build Common Widgets
+
 1. **ProfileAvatar** → **StatItem** → **ListItem** → **InfoCard** → **ProfileHeader**
 
-### Phase 2: Implement Pages  
+### Phase 2: Implement Pages
+
 2. **Login Page** (form design) → **Student Profile** (basic data) → **Tutor Profile** (statistics) → **Admin Profile** (complex data)
 
 ### Phase 3: Polish & Test
+
 3. **Responsive design** and **error handling**
 
 ### 🎨 Design Tips
+
 - Use `Card` widgets with elevation 3-4 and 12px border radius
 - Apply role-based theming: Student (blue), Tutor (green), Admin (orange)
 - Handle loading states and empty data gracefully
@@ -172,6 +178,7 @@ For detailed data structure examples, check the JSON files in `assets/json/` dir
 ## Common Widgets 🧩
 
 **Available in `lib/features/user_management/presentation/widgets/`:**
+
 1. **`ProfileAvatar`** - Avatar with network image/fallback
 2. **`InfoCard`** - Card with header icon and title
 3. **`StatItem`** - Statistics with icon, value, label
@@ -247,11 +254,11 @@ A successful Lab 6 implementation should demonstrate:
 
 ### Required Components
 
-- [ ] **Login Page** - Complete form with validation and role selection
-- [ ] **Student Profile** - Full profile with courses and bookings
-- [ ] **Tutor Profile** - Dashboard with statistics and sessions
-- [ ] **Admin Profile** - Comprehensive analytics dashboard
-- [ ] **Common Widgets** - All 5 widgets fully implemented
+- [X] **Login Page** - Complete form with validation and role selection
+- [X] **Student Profile** - Full profile with courses and bookings
+- [X] **Tutor Profile** - Dashboard with statistics and sessions
+- [X] **Admin Profile** - Comprehensive analytics dashboard
+- [X] **Common Widgets** - All 5 widgets fully implemented
 
 ### Bonus Points
 

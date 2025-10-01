@@ -1,3 +1,4 @@
+import 'package:campus_hub/features/user_management/presentation/widgets/info_card.dart';
 import 'package:campus_hub/features/user_management/presentation/widgets/profile_header.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/domain/enums/user_role.dart';
@@ -97,12 +98,38 @@ class _StudentProfilePageState extends State<StudentProfilePage> {
     return Column(
       // mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ProfileHeader(
-          name: student!.name,
-          email: student!.email,
-          themeColor: Colors.blue[100]!,
-          avatarUrl: student!.avatarUrl,
-          subtitle: '${student!.major} - Year ${student!.year}',
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: ProfileHeader(
+            name: student!.name,
+            email: student!.email,
+            themeColor: Colors.blue,
+            avatarUrl: student!.avatarUrl,
+            subtitle: '${student!.major} - Year ${student!.year}',
+          ),
+        ),
+        // SizedBox(height: 20),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: InfoCard(
+            title: 'Struggling Courses',
+            icon: Icons.school,
+            child: Column(
+              children: [
+                ...studentBookings.map((booking) {
+                  return Card(
+                    color: Colors.blue.shade50,
+                    margin: EdgeInsets.all(2.0),
+                    child: ListTile(
+                      title: Text(booking.studentId),
+                      leading: Icon(Icons.local_activity),
+                      trailing: Chip(label: Text(booking.status.name)),
+                    ),
+                  );
+                }),
+              ],
+            ),
+          ),
         ),
         Text(
           'Student Profile Page - Design Implementation Needed',

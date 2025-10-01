@@ -9,7 +9,7 @@ class ProfileHeader extends StatelessWidget {
   final String email;
   final String? subtitle;
   final String? avatarUrl;
-  final Color themeColor;
+  final MaterialColor themeColor;
   final Widget? additionalInfo;
 
   const ProfileHeader({
@@ -37,7 +37,7 @@ class ProfileHeader extends StatelessWidget {
     // - Use Expanded for the text column to take available space
 
     return Card(
-      color: themeColor,
+      color: themeColor[200],
       elevation: 4,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -55,10 +55,17 @@ class ProfileHeader extends StatelessWidget {
               children: [
                 Text(
                   name,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: themeColor[50],
+                  ),
                 ),
-                Text(email),
-                Text(subtitle ?? "No subtitle available"),
+                Text(email, style: TextStyle(color: themeColor[50])),
+                Text(
+                  subtitle ?? "No subtitle available",
+                  style: TextStyle(color: themeColor[50]),
+                ),
               ],
             ),
           ],

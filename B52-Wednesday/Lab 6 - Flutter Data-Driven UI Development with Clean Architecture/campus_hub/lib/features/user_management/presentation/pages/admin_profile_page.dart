@@ -1,3 +1,4 @@
+import 'package:campus_hub/features/user_management/presentation/widgets/profile_header.dart';
 import 'package:flutter/material.dart';
 import '../../domain/entities/admin.dart';
 import '../../domain/contracts/user_repository.dart';
@@ -81,44 +82,49 @@ class _AdminProfilePageState extends State<AdminProfilePage> {
     // - InfoCard for organizing different sections (permissions, actions)
     // - ListItem for individual permission and action items
 
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Admin Profile Page - Design Implementation Needed',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 20),
-          Text('Admin: ${admin!.name}', style: TextStyle(fontSize: 16)),
-          Text(
-            'Email: ${admin!.email}',
-            style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-          ),
-          SizedBox(height: 20),
-          Text(
-            'Total Users: ${systemAnalytics['users']?['totalUsers'] ?? 0}',
-            style: TextStyle(fontSize: 14),
-          ),
-          Text(
-            'Total Sessions: ${systemAnalytics['sessions']?['totalSessions'] ?? 0}',
-            style: TextStyle(fontSize: 14),
-          ),
-          Text(
-            'Total Bookings: ${systemAnalytics['bookings']?['totalBookings'] ?? 0}',
-            style: TextStyle(fontSize: 14),
-          ),
-          Text(
-            'Average Rating: ${systemAnalytics['reviews']?['averageRating']?.toStringAsFixed(1) ?? '0.0'}',
-            style: TextStyle(fontSize: 14),
-          ),
-          SizedBox(height: 20),
-          Text(
-            'Permissions: ${admin!.permissions.length}',
-            style: TextStyle(fontSize: 14),
-          ),
-        ],
-      ),
+    return Column(
+      // mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ProfileHeader(
+          name: admin!.name,
+          email: admin!.email,
+          themeColor: Colors.orange,
+          avatarUrl: admin!.avatarUrl,
+          subtitle: 'Admin',
+        ),
+        Text(
+          'Admin Profile Page - Design Implementation Needed',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 20),
+        Text('Admin: ${admin!.name}', style: TextStyle(fontSize: 16)),
+        Text(
+          'Email: ${admin!.email}',
+          style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+        ),
+        SizedBox(height: 20),
+        Text(
+          'Total Users: ${systemAnalytics['users']?['totalUsers'] ?? 0}',
+          style: TextStyle(fontSize: 14),
+        ),
+        Text(
+          'Total Sessions: ${systemAnalytics['sessions']?['totalSessions'] ?? 0}',
+          style: TextStyle(fontSize: 14),
+        ),
+        Text(
+          'Total Bookings: ${systemAnalytics['bookings']?['totalBookings'] ?? 0}',
+          style: TextStyle(fontSize: 14),
+        ),
+        Text(
+          'Average Rating: ${systemAnalytics['reviews']?['averageRating']?.toStringAsFixed(1) ?? '0.0'}',
+          style: TextStyle(fontSize: 14),
+        ),
+        SizedBox(height: 20),
+        Text(
+          'Permissions: ${admin!.permissions.length}',
+          style: TextStyle(fontSize: 14),
+        ),
+      ],
     );
   }
 }
