@@ -1,0 +1,44 @@
+[
+  {
+    "id": "dept_cs",
+    "name": "Computer Science Department",
+    "iconUrl": "https://cdn-icons-png.flaticon.com/512/2010/2010990.png",
+    "description": "Programming, software development, and computer systems"
+  },
+  {
+    "id": "dept_math",
+    "name": "Mathematics Department",
+    "iconUrl": "https://cdn-icons-png.flaticon.com/512/3771/3771275.png",
+    "description": "Pure and applied mathematics, calculus, and mathematical analysis"
+  },
+  {
+    "id": "dept_phys",
+    "name": "Physics Department",
+    "iconUrl": "https://cdn-icons-png.flaticon.com/512/2784/2784403.png",
+    "description": "Classical mechanics, quantum physics, and experimental physics"
+  },
+  {
+    "id": "dept_chem",
+    "name": "Chemistry Department",
+    "iconUrl": "https://cdn-icons-png.flaticon.com/512/2784/2784428.png",
+    "description": "Organic, inorganic, physical, and analytical chemistry"
+  },
+  {
+    "id": "dept_stat",
+    "name": "Statistics Department",
+    "iconUrl": "https://cdn-icons-png.flaticon.com/512/1055/1055687.png",
+    "description": "Statistical analysis, probability theory, and data science"
+  },
+  {
+    "id": "dept_engr",
+    "name": "Engineering Department",
+    "iconUrl": "https://cdn-icons-png.flaticon.com/512/2920/2920277.png",
+    "description": "Engineering principles, design, and problem-solving"
+  },
+  {
+    "id": "dept_engl",
+    "name": "English Department",
+    "iconUrl": "https://cdn-icons-png.flaticon.com/512/3002/3002543.png",
+    "description": "English composition, literature, and communication skills"
+  }
+]

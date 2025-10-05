@@ -1,0 +1,239 @@
+[
+  {
+    "id": "202205023",
+    "role": "tutor",
+    "name": "Sara Ahmed",
+    "email": "sa2205023@student.qu.edu.qa",
+    "password": "password123",
+    "avatarUrl": "https://i.pravatar.cc/150?img=1",
+    "createdAt": "2022-09-01T08:00:00Z",
+    "major": "Computer Science",
+    "year": 4,
+    "bio": "CS tutor focused on data structures & Flutter. Helped 50+ students.",
+    "strugglingCourses": [
+      "CMPS485",
+      "CMPS490"
+    ],
+    "completedCourses": [
+      "CMPS101",
+      "CMPS151",
+      "CMPS251",
+      "CMPS312",
+      "STAT210",
+      "MATH221"
+    ],
+    "tutoringCourses": [
+      "CMPS151",
+      "CMPS251",
+      "CMPS312",
+      "STAT210"
+    ],
+    "ratings": [
+      5,
+      4.5,
+      4,
+      5,
+      4.5
+    ]
+  },
+  {
+    "id": "202305077",
+    "role": "tutor",
+    "name": "Mohammed Ali",
+    "email": "ma2305077@student.qu.edu.qa",
+    "password": "password123",
+    "avatarUrl": "https://i.pravatar.cc/150?img=2",
+    "createdAt": "2023-09-01T08:00:00Z",
+    "major": "Mathematics",
+    "year": 4,
+    "bio": "Math & Physics mentor. Specializes in calculus and physics fundamentals.",
+    "strugglingCourses": [
+      "MATH441",
+      "MATH450"
+    ],
+    "completedCourses": [
+      "MATH221",
+      "PHYS110",
+      "ENGR210",
+      "STAT210",
+      "MATH321",
+      "PHYS220"
+    ],
+    "tutoringCourses": [
+      "MATH221",
+      "PHYS110",
+      "ENGR210"
+    ],
+    "ratings": [
+      4,
+      4,
+      3.5,
+      4.5
+    ]
+  },
+  {
+    "id": "202405145",
+    "role": "tutor",
+    "name": "Noor Al-Khalifa",
+    "email": "na2405145@student.qu.edu.qa",
+    "password": "password123",
+    "avatarUrl": "https://i.pravatar.cc/150?img=3",
+    "createdAt": "2024-09-01T08:00:00Z",
+    "major": "Chemistry",
+    "year": 4,
+    "bio": "Chemistry enthusiast and lab safety champion. Patient and detail-oriented.",
+    "strugglingCourses": [
+      "CHEM401",
+      "CHEM420"
+    ],
+    "completedCourses": [
+      "CHEM101",
+      "STAT210",
+      "ENGL202",
+      "CHEM201",
+      "CHEM301"
+    ],
+    "tutoringCourses": [
+      "CHEM101"
+    ],
+    "ratings": [
+      5,
+      5,
+      4.5
+    ]
+  },
+  {
+    "id": "202205001",
+    "role": "student",
+    "name": "Ahmed Hassan",
+    "email": "ah2205001@student.qu.edu.qa",
+    "password": "password123",
+    "avatarUrl": "https://i.pravatar.cc/150?img=4",
+    "createdAt": "2022-09-01T08:00:00Z",
+    "major": "Computer Science",
+    "year": 2,
+    "strugglingCourses": [
+      "CMPS251",
+      "MATH221"
+    ],
+    "completedCourses": [
+      "CMPS101",
+      "CMPS151",
+      "STAT210"
+    ],
+    "achievements": [
+      "Dean's List"
+    ],
+    "interests": [
+      "Coding",
+      "Football"
+    ],
+    "studyPreferences": {
+      "Preferred Study Time": "Night",
+      "Group Study": "Yes"
+    }
+  },
+  {
+    "id": "202305014",
+    "role": "student",
+    "name": "Layla Saeed",
+    "email": "ls2305014@student.qu.edu.qa",
+    "password": "password123",
+    "avatarUrl": "https://i.pravatar.cc/150?img=5",
+    "createdAt": "2023-09-01T08:00:00Z",
+    "major": "Physics",
+    "year": 3,
+    "strugglingCourses": [
+      "PHYS220",
+      "MATH321"
+    ],
+    "completedCourses": [
+      "PHYS110",
+      "MATH221",
+      "ENGR210"
+    ],
+    "achievements": [
+      "Hackathon Winner"
+    ],
+    "interests": [
+      "Music",
+      "Research"
+    ],
+    "studyPreferences": {
+      "Preferred Study Time": "Morning",
+      "Group Study": "No"
+    }
+  },
+  {
+    "id": "202405231",
+    "role": "student",
+    "name": "Yousef Nasser",
+    "email": "yn2405231@student.qu.edu.qa",
+    "password": "password123",
+    "avatarUrl": "https://i.pravatar.cc/150?img=6",
+    "createdAt": "2024-09-01T08:00:00Z",
+    "major": "Chemistry",
+    "year": 1,
+    "strugglingCourses": [
+      "CHEM101",
+      "MATH221"
+    ],
+    "completedCourses": [
+      "ENGL101"
+    ],
+    "achievements": [],
+    "interests": [
+      "Basketball"
+    ],
+    "studyPreferences": {
+      "Preferred Study Time": "Evening",
+      "Group Study": "Yes"
+    }
+  },
+  {
+    "id": "202505397",
+    "role": "student",
+    "name": "Hana Omar",
+    "email": "ho2505397@student.qu.edu.qa",
+    "password": "password123",
+    "avatarUrl": "https://i.pravatar.cc/150?img=7",
+    "createdAt": "2025-09-01T08:00:00Z",
+    "major": "Mathematics",
+    "year": 4,
+    "strugglingCourses": [
+      "MATH441"
+    ],
+    "completedCourses": [
+      "MATH221",
+      "STAT210",
+      "MATH321",
+      "ENGR210"
+    ],
+    "achievements": [
+      "Volunteer Tutor"
+    ],
+    "interests": [
+      "Teaching",
+      "Reading"
+    ],
+    "studyPreferences": {
+      "Preferred Study Time": "Afternoon",
+      "Group Study": "No"
+    }
+  },
+  {
+    "id": "admin001",
+    "role": "admin",
+    "name": "Campus Hub Admin",
+    "email": "admin@qu.edu.qa",
+    "password": "admin123",
+    "avatarUrl": "https://i.pravatar.cc/150?img=8",
+    "createdAt": "2025-01-01T08:00:00Z",
+    "permissions": [
+      "view_analytics",
+      "moderate_reviews",
+      "manage_users",
+      "manage_sessions"
+    ]
+  }
+]

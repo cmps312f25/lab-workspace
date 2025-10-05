@@ -1,5 +1,3 @@
-import 'package:campus_hub/features/user_management/presentation/pages/login_page.dart';
-import 'package:campus_hub/features/user_management/presentation/pages/student_profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 // TODO: Add necessary imports for your pages
@@ -15,25 +13,6 @@ class AppRouter {
 
   static final GoRouter router = GoRouter(
     // TODO: Add your router configuration here
-    initialLocation: '/',
-    routes: [
-      GoRoute(path: "/", builder: (context, state) => const LoginPage()),
-      // `/student/:userId`, `/tutor/:userId`, `/admin/:userId`
-      ShellRoute(
-        routes: [
-          GoRoute(
-            path: '/student/:userId',
-            builder: (context, state) {
-              final userId = state.pathParameters["userId"];
-              return StudentProfilePage(userId: userId);
-            },
-          ),
-          // GoRoute(path: '/tutor/:userId', builder: (context, state) => ,),
-          // GoRoute(path: '/admin/:userId', builder: (context, state) => ,),
-        ],
-        builder: (context, state, child) => MainScaffold(child: child),
-      ),
-    ],
   );
 }
 
