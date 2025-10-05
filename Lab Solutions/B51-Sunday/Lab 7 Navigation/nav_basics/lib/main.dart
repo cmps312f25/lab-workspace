@@ -17,10 +17,13 @@ class PageA extends StatelessWidget {
         child: InkWell(
           onTap: () {
             // here we will navigate to page B
+            // context.goNamed("details");
+            // context.go("/pageB");
+            context.push("/pageB/1");
           },
           child: Center(
             child: Text(
-              "I am Page A",
+              "I am Page AA",
               style: TextStyle(fontSize: 20, color: Colors.white),
             ),
           ),
@@ -31,7 +34,8 @@ class PageA extends StatelessWidget {
 }
 
 class PageB extends StatelessWidget {
-  const PageB({super.key});
+  final int id;
+  const PageB({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +46,12 @@ class PageB extends StatelessWidget {
         child: InkWell(
           onTap: () {
             // here we will navigate to page B
+            // context.go("/");
+            context.pop();
           },
           child: Center(
             child: Text(
-              "I am Page B",
+              "I am Page B and you sent me id: $id",
               style: TextStyle(fontSize: 20, color: Colors.white),
             ),
           ),
@@ -60,6 +66,16 @@ class AppRouter {
     initialLocation: "/",
     routes: [
       GoRoute(path: "/", builder: (context, state) => const PageA()),
+      GoRoute(
+        name: "details",
+        path: "/pageB/:id",
+        builder: (context, state) {
+          // a way to extract parameters from the state object
+          final id = int.tryParse(state.pathParameters['id']!) ?? 0;
+          return PageB(id: id);
+        },
+      ),
+
       // GoRoute(path: "/pageA", builder: (context, state) => const PageA()),
       // GoRoute(path: "/pageB", builder: (context, state) => const PageA()),
       // GoRoute(path: "/pageC", builder: (context, state) => const PageA()),
