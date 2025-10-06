@@ -1,3 +1,4 @@
+import 'package:campus_hub/core/navigation/app_router.dart';
 import 'package:flutter/material.dart';
 import 'features/user_management/presentation/pages/page_selector.dart';
 
@@ -10,13 +11,13 @@ class CampusHubApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'CampusHub',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const PageSelector(),
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
       // TODO: Replace with GoRouter implementation
       // routerConfig: AppRouter.router,
