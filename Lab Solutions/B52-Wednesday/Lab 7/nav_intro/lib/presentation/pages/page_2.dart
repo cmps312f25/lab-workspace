@@ -5,6 +5,12 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: Text("Demo Nav App")),
+      body: Container(
+        color: Colors.blue,
+        child: Center(child: Text("I am Page 2")),
+      ),
+    );
   }
 }
