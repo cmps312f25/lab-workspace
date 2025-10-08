@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nav_intro/presentations/main_scaffold.dart';
 import 'package:nav_intro/presentations/page_a.dart';
@@ -14,14 +15,26 @@ class AppRouter {
             path: "/",
             name: "home",
             builder: (context, state) => PageA(),
-          ),
-          GoRoute(
-            path: "/pageb",
-            name: "details",
-            builder: (context, state) => PageB(),
+            routes: [
+              GoRoute(
+                path: "pageb/:name/:age",
+                name: "details",
+                builder: (context, state) {
+                  final String name = state.pathParameters["name"]!;
+                  final String age = state.pathParameters["age"]!;
+                  // int.parse(age);
+                  debugPrint(name);
+                  debugPrint(age);
+                  return PageB(name: name, age: age);
+                },
+              ),
+            ],
           ),
         ],
       ),
     ],
   );
 }
+
+
+// pageb/dashboard

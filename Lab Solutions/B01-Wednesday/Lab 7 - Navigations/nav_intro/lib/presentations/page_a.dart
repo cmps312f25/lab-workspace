@@ -10,9 +10,9 @@ class PageA extends StatelessWidget {
       color: Colors.red,
       child: InkWell(
         onTap: () {
-          // context.go("/pageb");
+          context.go("/pageb/ali/22");
           // context.push("/pageb");
-          context.goNamed("details");
+          // context.goNamed("details");
         },
         child: Center(child: Text("Page A -> Click Me to Navigate to B")),
       ),

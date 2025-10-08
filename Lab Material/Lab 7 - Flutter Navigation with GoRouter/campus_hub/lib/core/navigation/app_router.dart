@@ -1,3 +1,4 @@
+import 'package:campus_hub/features/user_management/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 // TODO: Add necessary imports for your pages
@@ -12,7 +13,8 @@ class AppRouter {
   // 5. Pass user data through route parameters
 
   static final GoRouter router = GoRouter(
-    // TODO: Add your router configuration here
+    initialLocation: "/login",
+    routes: [GoRoute(path: "/login", builder: (context, state) => LoginPage())],
   );
 }
 
