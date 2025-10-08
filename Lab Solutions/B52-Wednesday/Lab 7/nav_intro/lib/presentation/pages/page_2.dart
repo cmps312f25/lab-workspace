@@ -6,14 +6,16 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Demo Nav App")),
-      body: InkWell(
-        onTap: () => context.go("/page1"),
-        child: Container(
-          color: Colors.blue,
-          child: Center(child: Text("I am Page 2")),
-        ),
+    return Container(
+      color: Colors.blue,
+      child: InkWell(
+        onTap: () {
+          // context.pop()
+          // context.goNamed("home");
+          context.push("/");
+          // context.go("home");
+        },
+        child: Center(child: Text("I am Page 2")),
       ),
     );
   }

@@ -6,17 +6,15 @@ class Page1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("Demo Nav App")),
-      body: InkWell(
+    return Container(
+      color: Colors.red,
+      child: InkWell(
         onTap: () {
-          context.go("/page2");
+          // context.go("/page2/ali/22");
+          context.push("/page2/ali/22");
+          // context.goNamed("details");
         },
-        child: Container(
-          color: Colors.red,
-          child: Center(
-            child: Text("I am Page 1 -> Click to go to Page 2")),
-        ),
+        child: Center(child: Text("I am Page 1 -> Click to go to Page 2")),
       ),
     );
   }

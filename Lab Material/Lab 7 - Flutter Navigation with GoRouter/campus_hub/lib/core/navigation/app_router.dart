@@ -12,10 +12,7 @@ class AppRouter {
   // 4. Use ShellRoute to wrap profile routes with MainScaffold
   // 5. Pass user data through route parameters
 
-  static final GoRouter router = GoRouter(
-    initialLocation: "/login",
-    routes: [GoRoute(path: "/login", builder: (context, state) => LoginPage())],
-  );
+  static final GoRouter router = GoRouter();
 }
 
 class MainScaffold extends StatefulWidget {

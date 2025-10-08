@@ -11,14 +11,13 @@ class CampusHubApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       title: 'CampusHub',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      // home: const PageSelector(),
-      routerConfig: AppRouter.router,
+      home: const PageSelector(),
       debugShowCheckedModeBanner: false,
       // TODO: Replace with GoRouter implementation
       // routerConfig: AppRouter.router,
