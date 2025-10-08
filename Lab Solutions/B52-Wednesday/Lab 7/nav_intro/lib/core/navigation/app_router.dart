@@ -6,10 +6,8 @@ class AppRouter {
   static final router = GoRouter(
     routes: [
       // ShellRoute(routes: routes)
-      GoRoute(path: "/", builder: (context, state) => Page1()),
-      GoRoute(
-        path: "/page2", 
-        builder: (context, state) => Page2()),
+      GoRoute(path: "/page1", builder: (context, state) => Page1()),
+      GoRoute(path: "/page2", builder: (context, state) => Page2()),
     ],
   );
 }
