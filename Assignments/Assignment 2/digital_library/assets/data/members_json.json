@@ -1,0 +1,74 @@
+[
+  {
+    "memberId": "STU001",
+    "type": "StudentMember",
+    "name": "Ahmed Al-Rashid",
+    "email": "ahmed.alrashid@qu.edu.qa",
+    "joinDate": "2024-01-15T00:00:00.000Z",
+    "profileImageUrl": null,
+    "studentId": "202401234"
+  },
+  {
+    "memberId": "STU002", 
+    "type": "StudentMember",
+    "name": "Fatima Al-Kuwari",
+    "email": "fatima.alkuwari@qu.edu.qa", 
+    "joinDate": "2024-02-01T00:00:00.000Z",
+    "profileImageUrl": null,
+    "studentId": "202401567"
+  },
+  {
+    "memberId": "STU003",
+    "type": "StudentMember", 
+    "name": "Omar Hassan",
+    "email": "omar.hassan@qu.edu.qa",
+    "joinDate": "2023-09-10T00:00:00.000Z",
+    "profileImageUrl": null,
+    "studentId": "202301890"
+  },
+  {
+    "memberId": "STU004",
+    "type": "StudentMember",
+    "name": "Noor Al-Thani", 
+    "email": "noor.althani@qu.edu.qa",
+    "joinDate": "2024-01-20T00:00:00.000Z",
+    "profileImageUrl": null,
+    "studentId": "202401456"
+  },
+  {
+    "memberId": "FAC001",
+    "type": "FacultyMember",
+    "name": "Dr. Khalid Al-Ansari",
+    "email": "k.alansari@qu.edu.qa",
+    "joinDate": "2020-08-01T00:00:00.000Z",
+    "profileImageUrl": null,
+    "department": "Computer Science"
+  },
+  {
+    "memberId": "FAC002",
+    "type": "FacultyMember",
+    "name": "Dr. Mariam Abdulla",
+    "email": "m.abdulla@qu.edu.qa", 
+    "joinDate": "2019-01-15T00:00:00.000Z",
+    "profileImageUrl": null,
+    "department": "Information Systems"
+  },
+  {
+    "memberId": "FAC003",
+    "type": "FacultyMember",
+    "name": "Prof. Hassan Al-Malki",
+    "email": "h.almalki@qu.edu.qa",
+    "joinDate": "2018-09-01T00:00:00.000Z", 
+    "profileImageUrl": null,
+    "department": "Computer Science"
+  },
+  {
+    "memberId": "FAC004",
+    "type": "FacultyMember",
+    "name": "Dr. Aisha Al-Dosari",
+    "email": "a.aldosari@qu.edu.qa",
+    "joinDate": "2021-02-01T00:00:00.000Z",
+    "profileImageUrl": null,
+    "department": "Software Engineering"
+  }
+]
