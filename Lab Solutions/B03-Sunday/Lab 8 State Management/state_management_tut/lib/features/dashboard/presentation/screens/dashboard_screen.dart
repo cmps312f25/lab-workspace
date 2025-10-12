@@ -1,23 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:state_management_tut/features/dashboard/domain/entities/book.dart';
+import 'package:state_management_tut/features/dashboard/presentation/providers/book_provider.dart';
 
-class DashboardScreen extends StatefulWidget {
+class DashboardScreen extends ConsumerStatefulWidget {
   const DashboardScreen({super.key});
 
   @override
-  State<DashboardScreen> createState() => _DashboardScreenState();
+  ConsumerState<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _DashboardScreenState extends State<DashboardScreen> {
+class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
-    List<String> names = ["Mohamed", "Yahya", "Ali", "Abdullah", "Ahmed"];
+    List<Book> books = ref.watch(bookNotifierProvider);
     return Scaffold(
       appBar: AppBar(title: Text("Dashboard")),
       body: Center(
         child: ListView.builder(
-          itemBuilder: (context, index) =>
-              Card(child: ListTile(title: Text(names[index]))),
-          itemCount: names.length,
+          itemBuilder: (context, index) => Card(
+            child: InkWell(
+              onTap: () =>
+                  ref.read(bookNotifierProvider.notifier).addBook(books[index]),
+              child: ListTile(title: Text(books[index].title)),
+            ),
+          ),
+          itemCount: books.length,
         ),
       ),
     );
