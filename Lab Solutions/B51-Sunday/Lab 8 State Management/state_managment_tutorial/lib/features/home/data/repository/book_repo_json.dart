@@ -6,7 +6,7 @@ import 'package:state_managment_tutorial/features/home/domain/entities/book.dart
 
 class BookRepoJson implements BookRepo {
   @override
-  Future<List<String>> fetchBooks() async {
+  Future<List<Book>> fetchBooks() async {
     final booksData = await rootBundle.loadString('assets/data/books.json');
     final booksMap = await jsonDecode(booksData);
     final booksList = booksMap.map((book) => Book.fromJson(book)).toList();
