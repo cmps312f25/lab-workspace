@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:state_management_tut/core/navigations/app_router.dart';
 import 'package:state_management_tut/features/dashboard/presentation/dashboard_screen.dart';
 
 void main() {
@@ -11,12 +12,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const DashboardScreen(),
+      routerConfig: AppRouter.router,
     );
   }
 }
