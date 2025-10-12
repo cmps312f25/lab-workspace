@@ -9,7 +9,7 @@ import 'states/session_state.dart';
 // Requirements: SessionNotifier should extend the Notifier class
 // Hint: Notifier is a generic class - you need to specify what state type it manages
 // Hint: The state type for sessions is SessionData
-class SessionNotifier {
+class SessionNotifier extends Notifier<>{
   late SessionRepository sessionRepository;
 
   // TODO 2: Override the build() method to return initial state
