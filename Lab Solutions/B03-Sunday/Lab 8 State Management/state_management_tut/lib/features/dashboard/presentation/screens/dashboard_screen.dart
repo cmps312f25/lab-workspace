@@ -10,13 +10,14 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
+    List<String> names = ["Mohamed", "Yahya", "Ali", "Abdullah", "Ahmed"];
     return Scaffold(
       appBar: AppBar(title: Text("Dashboard")),
       body: Center(
         child: ListView.builder(
           itemBuilder: (context, index) =>
-              Card(child: ListTile(title: Text("$index Title"))),
-          itemCount: 20,
+              Card(child: ListTile(title: Text(names[index]))),
+          itemCount: names.length,
         ),
       ),
     );

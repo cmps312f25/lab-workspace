@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:state_management_tut/core/navigations/app_router.dart';
-import 'package:state_management_tut/features/dashboard/presentation/dashboard_screen.dart';
+import 'package:state_management_tut/features/dashboard/presentation/screens/dashboard_screen.dart';
 
 void main() {
   runApp(const MyApp());

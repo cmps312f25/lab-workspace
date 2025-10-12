@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:state_management_tut/features/dashboard/presentation/dashboard_screen.dart';
+import 'package:state_management_tut/features/dashboard/presentation/screens/dashboard_screen.dart';
 
 class AppRouter {
   // constants here
