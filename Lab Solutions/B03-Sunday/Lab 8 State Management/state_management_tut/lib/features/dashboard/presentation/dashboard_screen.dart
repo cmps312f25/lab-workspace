@@ -12,7 +12,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Dashboard")),
-      body: Center(child: Text("Welcome to the Dashboard")),
+      body: Center(
+        child: ListView.builder(
+          itemBuilder: (context, index) =>
+              Card(child: ListTile(title: Text("$index Title"))),
+          itemCount: 20,
+        ),
+      ),
     );
   }
 }
