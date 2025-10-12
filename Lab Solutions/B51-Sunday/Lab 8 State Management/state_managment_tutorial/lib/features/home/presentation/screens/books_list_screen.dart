@@ -22,9 +22,15 @@ class _BooksListScreenState extends ConsumerState<BooksListScreen> {
               itemBuilder: (context, index) {
                 final book = books[index];
                 return Card(
-                  child: ListTile(
-                    title: Text(book.title),
-                    leading: Icon(Icons.book),
+                  child: InkWell(
+                    onTap: () {
+                      ref.read(bookNotifierProvider.notifier).addBook(book);
+                      //     title: "New Book",
+                    },
+                    child: ListTile(
+                      title: Text(book.title),
+                      leading: Icon(Icons.book),
+                    ),
                   ),
                 );
               },
