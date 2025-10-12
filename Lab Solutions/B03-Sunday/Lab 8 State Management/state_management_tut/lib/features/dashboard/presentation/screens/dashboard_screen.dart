@@ -13,7 +13,9 @@ class DashboardScreen extends ConsumerStatefulWidget {
 class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
-    List<Book> books = ref.watch(bookNotifierProvider);
+    final DashBoardData state = ref.watch(bookNotifierProvider);
+    final List<Book> books = state.books;
+
     return Scaffold(
       appBar: AppBar(title: Text("Dashboard")),
       body: Center(
