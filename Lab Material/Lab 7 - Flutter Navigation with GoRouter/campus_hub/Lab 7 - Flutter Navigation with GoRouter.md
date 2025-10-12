@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is **Lab 7**, a continuation of [Lab 6 Flutter Data-Driven UI Development with Clean Architecture](Lab%206%20-%20Flutter%20Data-Driven%20UI%20Development%20with%20Clean%20Architecture.md).
+This is **Lab 7**, a continuation of [Lab 6 Flutter Data-Driven UI Development with Clean Architecture](https://github.com/cmps312f25/lab-workspace/blob/main/Lab%20Material/Lab%206%20-%20Flutter%20Data-Driven%20UI%20Development%20with%20Clean%20Architecture/campus_hub/Lab%206%20-%20Flutter%20Data-Driven%20UI%20Development%20with%20Clean%20Architecture.md).
 
 In Lab 6, you learned to build beautiful UIs with data integration using Clean Architecture. Now in Lab 7, you will implement a professional navigation system using GoRouter, replacing the basic tab navigation with role-based authentication and scaffold-based routing.
 

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/abdulahihassen/Documents/cmps312f25/**)",
+      "Bash(flutter:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
