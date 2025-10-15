@@ -32,4 +32,14 @@ class Book {
   String toString() {
     return 'Book{id: $id, title: $title, author: $author, year: $year}';
   }
+
+  // add copyWith, ==, hashCode if needed
+  Book copyWith({int? id, String? title, String? author, int? year}) {
+    return Book(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      author: author ?? this.author,
+      year: year ?? this.year,
+    );
+  }
 }

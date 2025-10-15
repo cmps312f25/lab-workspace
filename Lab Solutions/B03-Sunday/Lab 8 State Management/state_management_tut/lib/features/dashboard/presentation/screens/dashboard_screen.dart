@@ -13,23 +13,30 @@ class DashboardScreen extends ConsumerStatefulWidget {
 class _DashboardScreenState extends ConsumerState<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
-    final DashBoardData state = ref.watch(bookNotifierProvider);
-    final List<Book> books = state.books;
+    final booksAsync = ref.watch(bookNotifierProvider);
 
     return Scaffold(
       appBar: AppBar(title: Text("Dashboard")),
       body: Center(
-        child: ListView.builder(
-          itemBuilder: (context, index) => Card(
-            child: InkWell(
-              onTap: () =>
-                  ref.read(bookNotifierProvider.notifier).addBook(books[index]),
-              child: ListTile(title: Text(books[index].title)),
-            ),
-          ),
-          itemCount: books.length,
+        child: booksAsync.when(
+          data: (books) => booksListView(books),
+          error: (error, stackTrace) => Text('Error: $error'),
+          loading: () => CircularProgressIndicator(),
         ),
       ),
     );
   }
+}
+
+Widget booksListView(List<Book> books) {
+  return ListView.builder(
+    itemCount: books.length,
+    itemBuilder: (context, index) {
+      final book = books[index];
+      return ListTile(
+        title: Text(book.title),
+        subtitle: Text('${book.author} (${book.year})'),
+      );
+    },
+  );
 }
