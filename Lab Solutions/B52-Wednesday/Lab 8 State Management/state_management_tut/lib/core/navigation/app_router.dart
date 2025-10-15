@@ -19,8 +19,16 @@ class AppRouter {
   static final router = GoRouter(
     initialLocation: dashboard.path,
     routes: [
-      GoRoute(path: dashboard.path , name : dashboard.name , builder: (context, state) => dashboard.screen,),
-      GoRoute(path: settings.path , name : settings.name , builder: (context, state) => settings.screen,),
- 
-    ]);
+      GoRoute(
+        path: dashboard.path,
+        name: dashboard.name,
+        builder: (context, state) => dashboard.screen,
+      ),
+      GoRoute(
+        path: settings.path,
+        name: settings.name,
+        builder: (context, state) => settings.screen,
+      ),
+    ],
+  );
 }
