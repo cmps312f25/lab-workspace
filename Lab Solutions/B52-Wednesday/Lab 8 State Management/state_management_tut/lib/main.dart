@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:state_management_tut/features/dashboard/presentation/screens/dashboard_screen.dart';
+import 'package:state_management_tut/features/settings/presentations/screens/settings_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const DashboardScreen(),
     );
   }
 }
