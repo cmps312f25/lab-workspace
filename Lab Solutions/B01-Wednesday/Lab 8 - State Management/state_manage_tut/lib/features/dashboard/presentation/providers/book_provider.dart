@@ -16,10 +16,10 @@ class BookNotifier extends AsyncNotifier<List<Book>> {
     // call the repo to add the book
     // get the updated list of books
     // update the state
-    final books = state.value ?? [];
-    books.add(book);
-    // state = AsyncData(books);
-    state = AsyncValue.data(books);
+    final updatedBooks = [...state.value ?? [], book];
+    state = AsyncData(updatedBooks);
+
+    // state = state.whenData((books) => [...books, book]); //
   }
 }
 

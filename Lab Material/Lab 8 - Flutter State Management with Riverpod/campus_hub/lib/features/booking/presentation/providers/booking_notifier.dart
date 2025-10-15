@@ -9,7 +9,7 @@ import 'states/booking_state.dart';
 // Requirements: BookingNotifier should extend the Notifier class
 // Hint: Notifier is a generic class - you need to specify what state type it manages
 // Hint: The state type for bookings is BookingData
-class BookingNotifier {
+class BookingNotifier extends Notifier<BookingData>{
   late BookingRepository bookingRepository;
 
   // TODO 2: Override the build() method to return initial state
