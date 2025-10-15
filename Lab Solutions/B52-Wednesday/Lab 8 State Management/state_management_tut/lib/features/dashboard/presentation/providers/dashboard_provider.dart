@@ -12,9 +12,16 @@ class BookNotifier extends AsyncNotifier<List<Book>> {
     List<Book> books = await repo.getBooks();
     return books;
   }
+
+  Future<void> addBook(Book book) async {
+    final books = state.value ?? [];
+    final updatedBooks = [...books, book];
+    state = AsyncData(updatedBooks);
+  }
 }
 
 // you need to create the provider
 
-final dashboardAsyncNotifierProvider =
-    AsyncNotifierProvider<BookNotifier, List<Book>>(() => BookNotifier());
+final bookProvider = AsyncNotifierProvider<BookNotifier, List<Book>>(
+  () => BookNotifier(),
+);
