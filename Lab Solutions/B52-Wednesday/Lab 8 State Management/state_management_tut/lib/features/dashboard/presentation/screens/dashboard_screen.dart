@@ -10,8 +10,6 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const Text("This is the dashboard Screen is loaded with router"),
-    );
+    return Text("This is the dashboard Screen is loaded with router");
   }
 }
