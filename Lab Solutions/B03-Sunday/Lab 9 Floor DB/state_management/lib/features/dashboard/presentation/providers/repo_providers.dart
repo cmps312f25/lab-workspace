@@ -5,29 +5,12 @@ import 'package:state_management_tut/features/dashboard/data/repository/category
 import 'package:state_management_tut/features/dashboard/domain/contracts/book_repo.dart';
 import 'package:state_management_tut/features/dashboard/domain/contracts/category_repo.dart';
 
+final categoryRepoProvider = FutureProvider<CategoryRepository>((ref) async {
+  final db = await ref.watch(databaseProvider.future);
+  return CategoryRepoLocalDb(db.categoryDao);
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Return interface types, not concrete implementations
-// final bookRepoProvider = FutureProvider<BookRepository>((ref) async {
-//   final database = await ref.watch(databaseProvider.future);
-//   return BookRepoLocalDB(database.bookDao);
-// });
-
-// final categoryRepoProvider = FutureProvider<CategoryRepository>((ref) async {
-//   final database = await ref.watch(databaseProvider.future);
-//   return CategoryRepoLocalDB(database.categoryDao);
-// });
+final bookRepoProvider = FutureProvider<BookRepository>((ref) async {
+  final db = await ref.watch(databaseProvider.future);
+  return BookRepoLocalDB(db.bookDao);
+});
