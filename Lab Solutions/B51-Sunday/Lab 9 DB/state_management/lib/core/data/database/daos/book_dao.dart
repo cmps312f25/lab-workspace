@@ -1,6 +1,7 @@
 import 'package:floor/floor.dart';
 import 'package:state_management_tut/features/dashboard/domain/entities/book.dart';
 
+@dao
 abstract class BookDao {
   @Query("SELECT * FROM books")
   Stream<List<Book>> getBooks();

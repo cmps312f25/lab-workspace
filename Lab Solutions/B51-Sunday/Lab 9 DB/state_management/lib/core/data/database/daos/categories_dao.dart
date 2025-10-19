@@ -6,7 +6,7 @@ abstract class CategoryDao {
   @Query("SELECT * FROM categories")
   Stream<List<Category>> observeCategories();
 
-  @Query("SELECT * FROM categories WHERE id =:id")
+  @Query("SELECT * FROM categories WHERE id = :id")
   Future<Category?> getCategoryById(int id);
 
   @insert
