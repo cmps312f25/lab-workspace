@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Classic Literature",
+        "description": "Timeless works of fiction that have shaped literary history"
+    },
+    {
+        "id": 2,
+        "name": "Science Fiction",
+        "description": "Imaginative stories exploring futuristic concepts and technology"
+    },
+    {
+        "id": 3,
+        "name": "Mystery & Thriller",
+        "description": "Suspenseful tales of crime, investigation, and intrigue"
+    },
+    {
+        "id": 4,
+        "name": "Fantasy",
+        "description": "Epic adventures in magical worlds and mythical realms"
+    }
+]

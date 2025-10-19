@@ -1,0 +1,47 @@
+name: state_management_tut
+description: 'State Management Tutorial App using Riverpod and GoRouter'
+# Prevents accidental publishing to pub.dev
+publish_to: 'none'
+
+# App version: major.minor.patch+build
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # iOS style icons
+  cupertino_icons: ^1.0.8
+  # Declarative routing with Navigation 2.0
+  go_router: ^16.2.4
+  # Reactive state management
+  flutter_riverpod: ^3.0.3
+
+  # Local Database (Floor - SQLite abstraction)
+  floor: ^1.5.0
+  sqflite: ^2.4.1
+
+  # Floor code generation , needed for build_runner
+  floor_generator: ^1.5.0
+  build_runner: ^2.4.13
+
+  # Path utilities and file storage support
+  path: ^1.9.0
+  path_provider: ^2.1.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  # Recommended lints for Flutter projects
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  # App assets
+  assets:
+    - assets/data/books.json
+    - assets/data/categories.json
