@@ -1,6 +1,9 @@
 import 'package:floor/floor.dart';
 
+@Entity(tableName: "categories")
 class Category {
+  @PrimaryKey(autoGenerate: true)
+  // @primaryKey , the user will give you the ID
   final int? id;
   final String name;
   final String description;

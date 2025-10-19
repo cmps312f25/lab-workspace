@@ -1,6 +1,7 @@
 import 'package:floor/floor.dart';
 import 'package:state_management_tut/features/dashboard/domain/entities/category.dart';
 
+@dao
 abstract class CategoryDao {
   Stream<List<Category>> getCategories();
 

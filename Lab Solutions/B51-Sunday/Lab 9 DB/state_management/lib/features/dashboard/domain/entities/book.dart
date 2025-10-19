@@ -1,9 +1,18 @@
 import 'package:floor/floor.dart';
 import 'package:state_management_tut/features/dashboard/domain/entities/category.dart';
 
-
+@Entity(
+  tableName: "books",
+  foreignKeys: [
+    ForeignKey(
+      childColumns: ["categoryId"],
+      parentColumns: ["id"],
+      entity: Category,
+    ),
+  ],
+)
 class Book {
- 
+  @PrimaryKey(autoGenerate: true)
   final int? id;
   final String title;
   final String author;
