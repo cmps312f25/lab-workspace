@@ -1,4 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:state_management_tut/core/data/database/database_provider.dart';
+import 'package:state_management_tut/features/dashboard/data/repository/category_repo_local_db.dart';
 import 'package:state_management_tut/features/dashboard/domain/contracts/category_repo.dart';
 import 'package:state_management_tut/features/dashboard/domain/entities/category.dart';
 import 'package:state_management_tut/features/dashboard/presentation/providers/repo_providers.dart';
@@ -15,6 +17,11 @@ class CategoryNotifier extends AsyncNotifier<CategoryData> {
 
   @override
   Future<CategoryData> build() async {
+    // final db = await $FloorAppDatabase.databaseBuilder('app_database.db').build();
+    // final dbDao = db.categoryDao;
+    // categoryRepo = CategoryRepoLocalDb(dbDao);
+    // final db = await ref.read(categoryRepoProvider.future);
+
     categoryRepo = await ref.read(categoryRepoProvider.future);
     categoryRepo.getCategories().listen((categories) {
       state = AsyncData(
