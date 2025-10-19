@@ -1,0 +1,52 @@
+[
+  {
+    "id": "9b23c852",
+    "tutorId": "202205023",
+    "courseId": "CMPS312",
+    "start": "2025-10-05T10:00:00Z",
+    "end": "2025-10-05T11:00:00Z",
+    "capacity": 5,
+    "location": "Library 2F, Room 204",
+    "status": "open"
+  },
+  {
+    "id": "106b44f6",
+    "tutorId": "202205023",
+    "courseId": "STAT210",
+    "start": "2025-10-06T14:00:00Z",
+    "end": "2025-10-06T15:30:00Z",
+    "capacity": 8,
+    "location": "Lab A1",
+    "status": "open"
+  },
+  {
+    "id": "500db71d",
+    "tutorId": "202305077",
+    "courseId": "MATH221",
+    "start": "2025-10-05T12:00:00Z",
+    "end": "2025-10-05T13:00:00Z",
+    "capacity": 6,
+    "location": "Math Center",
+    "status": "open"
+  },
+  {
+    "id": "00e58cd3",
+    "tutorId": "202305077",
+    "courseId": "PHYS110",
+    "start": "2025-10-07T09:00:00Z",
+    "end": "2025-10-07T10:30:00Z",
+    "capacity": 4,
+    "location": "Physics Lab",
+    "status": "closed"
+  },
+  {
+    "id": "f08a1312",
+    "tutorId": "202405145",
+    "courseId": "CHEM101",
+    "start": "2025-10-08T11:00:00Z",
+    "end": "2025-10-08T12:00:00Z",
+    "capacity": 3,
+    "location": "Chemistry R12",
+    "status": "open"
+  }
+]

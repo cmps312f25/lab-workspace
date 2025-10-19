@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Read(//Users/abdulahihassen/Documents/cmps312f25/**)",
-      "Bash(flutter:*)"
+      "Bash(flutter:*)",
+      "Read(//private/var/folders/nz/1s7d89j901scg854xpcw0x0m0000gn/T/**)",
+      "Bash(pkill -USR2 -f \"flutter run\")"
     ],
     "deny": [],
     "ask": []

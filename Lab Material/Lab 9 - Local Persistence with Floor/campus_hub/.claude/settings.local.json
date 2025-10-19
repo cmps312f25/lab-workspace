@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/abdulahihassen/Documents/cmps312f25/**)",
+      "Bash(flutter:*)",
+      "Read(//private/var/folders/nz/1s7d89j901scg854xpcw0x0m0000gn/T/**)",
+      "Bash(pkill -USR2 -f \"flutter run\")",
+      "Bash(nc localhost 52422)",
+      "Bash(pkill -f \"flutter run\")",
+      "Bash(find /Users/abdulahihassen/Documents/cmps312f25 -type d ( -name \"build\" -o -name \".dart_tool\" ) -exec rm -rf {} +)",
+      "Bash(find /Users/abdulahihassen/Documents/cmps312f25 -type f ( -name \".flutter-plugins\" -o -name \".flutter-plugins-dependencies\" -o -name \".packages\" -o -name \".metadata\" ) -delete)",
+      "Bash(find /Users/abdulahihassen/Documents/cmps312f25 -type d -name \"ios\" -exec find {} -type d -name \"Pods\")",
+      "Bash(find /Users/abdulahihassen/Documents/cmps312f25 -type d -path \"*/ios/Pods\" -exec rm -rf {} +)",
+      "Bash(find /Users/abdulahihassen/Documents/cmps312f25 -type f -name \"Podfile.lock\" -delete)",
+      "Bash(find lib -name \"*.dart\" -type f -exec sed -i '' '/\\/\\/ TODO/d' {} ;)",
+      "mcp__ide__getDiagnostics",
+      "Bash(nc localhost 59075)",
+      "Read(//Users/abdulahihassen/Library/Developer/CoreSimulator/**)",
+      "Bash(find /Users/abdulahihassen/Library/Developer/CoreSimulator -name \"campus_hub.db*\" -delete)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import '../providers/session_notifier.dart';
 
 class SessionDetailPage extends ConsumerStatefulWidget {
@@ -16,150 +17,16 @@ class _SessionDetailPageState extends ConsumerState<SessionDetailPage> {
   void initState() {
     super.initState();
     // TODO 16: Load session by ID when page initializes
-    // Requirements: Call loadSessionById() method with the session ID
-    // Hint: Use ref.read() for one-time actions in initState
-    // Hint: The session ID is available in widget.sessionId
-    // Hint: Access notifier methods using .notifier on the provider
+    // Call the loadSessionById() method using ref.read()
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO 17: Watch the session state to get selected session
-    // Requirements: Watch the session provider and get the selectedSession
-    // - Use ref.watch() to listen for state changes
-    // - Access the selectedSession property from the state
-    // Hint: Use ref.watch() in build() for reactive UI
-    // Hint: The state object has a .selectedSession property
-    // Hint: Replace null below with the selectedSession from state
+    // TODO 17: Watch the session AsyncValue state to get selected session
+    // The state is now wrapped in AsyncValue because we're using AsyncNotifier
+    // Watch the sessionNotifierProvider and access the selectedSession from AsyncValue
 
-    // For now, session is null until students implement TODOs
-    final session = null; // Replace this with the selectedSession from state
-
-    if (session == null) {
-      return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('No session data'),
-            const SizedBox(height: 16),
-            Text(
-              'Complete the TODO to load session',
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.orange[700],
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
-    return SingleChildScrollView(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // Status Badge
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 6,
-                            ),
-                            decoration: BoxDecoration(
-                              color: session.isOpen
-                                  ? Colors.green.withValues(alpha: 0.1)
-                                  : Colors.grey.withValues(alpha: 0.1),
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                color: session.isOpen ? Colors.green : Colors.grey,
-                              ),
-                            ),
-                            child: Text(
-                              session.status.value.toUpperCase(),
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: session.isOpen ? Colors.green : Colors.grey,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 24),
-
-                          // Course Info
-                          _buildInfoCard(
-                            'Course Information',
-                            Icons.book,
-                            Colors.blue,
-                            [
-                              _buildInfoRow('Course', session.courseId),
-                              _buildInfoRow('Location', session.location),
-                            ],
-                          ),
-                          const SizedBox(height: 16),
-
-                          // Schedule Info
-                          _buildInfoCard(
-                            'Schedule',
-                            Icons.schedule,
-                            Colors.orange,
-                            [
-                              _buildInfoRow('Date', _formatDate(session.start)),
-                              _buildInfoRow('Start Time', _formatTime(session.start)),
-                              _buildInfoRow('End Time', _formatTime(session.end)),
-                              _buildInfoRow(
-                                'Duration',
-                                '${session.end.difference(session.start).inHours} hours',
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 16),
-
-                          // Capacity Info
-                          _buildInfoCard(
-                            'Capacity',
-                            Icons.people,
-                            Colors.purple,
-                            [
-                              _buildInfoRow(
-                                'Available Spots',
-                                '${session.capacity}',
-                              ),
-                              _buildInfoRow('Status', session.isOpen ? 'Open' : 'Closed'),
-                            ],
-                          ),
-                          const SizedBox(height: 24),
-
-                          // Book Session Button
-                          if (session.isOpen)
-                            SizedBox(
-                              width: double.infinity,
-                              height: 50,
-                              child: ElevatedButton.icon(
-                                onPressed: () {
-                                  // Show booking dialog
-                                  _showBookingDialog(context);
-                                },
-                                icon: const Icon(Icons.book_online),
-                                label: const Text(
-                                  'Book This Session',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.green.shade600,
-                                  foregroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                ),
-                              ),
-                            ),
-                        ],
-                      ),
-                    );
+    return const Center(child: Text('Complete the TODO to load data'));
   }
 
   Widget _buildInfoCard(
