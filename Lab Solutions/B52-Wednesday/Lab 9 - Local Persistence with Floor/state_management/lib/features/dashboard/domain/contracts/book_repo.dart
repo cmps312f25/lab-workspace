@@ -1,7 +1,7 @@
 import 'package:state_management_tut/features/dashboard/domain/entities/book.dart';
 
 abstract class BookRepository {
-  Stream<List<Book>> getBooks();
+  Stream<List<Book>> observeBooks();
   Future<Book?> getBookById(int id);
   Future<void> addBook(Book book);
   Future<void> updateBook(Book book);

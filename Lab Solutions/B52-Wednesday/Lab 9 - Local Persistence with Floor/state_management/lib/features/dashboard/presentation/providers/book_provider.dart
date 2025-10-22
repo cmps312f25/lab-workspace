@@ -14,7 +14,7 @@ class BookNotifier extends AsyncNotifier<DashBoardData> {
   @override
   Future<DashBoardData> build() async {
     bookRepo = await ref.read(bookRepoProvider.future);
-    bookRepo.getBooks().listen((books) {
+    bookRepo.observeBooks().listen((books) {
       state = AsyncData(DashBoardData(books: books));
     });
 
