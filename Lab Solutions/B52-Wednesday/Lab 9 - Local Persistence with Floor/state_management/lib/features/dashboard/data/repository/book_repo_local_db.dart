@@ -8,7 +8,7 @@ class BookRepoLocalDB implements BookRepository {
   BookRepoLocalDB(this._bookDao);
 
   @override
-  Stream<List<Book>> observeBooks() => _bookDao.getBooks();
+  Stream<List<Book>> observeBooks() => _bookDao.observeBooks();
 
   @override
   Future<void> addBook(Book book) => _bookDao.addBook(book);
