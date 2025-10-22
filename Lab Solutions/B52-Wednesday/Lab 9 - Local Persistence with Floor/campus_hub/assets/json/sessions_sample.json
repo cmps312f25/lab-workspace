@@ -1,0 +1,152 @@
+[
+  {
+    "id": "9b23c852",
+    "tutorId": "202205023",
+    "courseId": "CMPS312",
+    "start": "2025-10-05T10:00:00Z",
+    "end": "2025-10-05T11:00:00Z",
+    "capacity": 5,
+    "location": "Library 2F, Room 204",
+    "status": "open"
+  },
+  {
+    "id": "106b44f6",
+    "tutorId": "202205023",
+    "courseId": "STAT210",
+    "start": "2025-10-06T14:00:00Z",
+    "end": "2025-10-06T15:30:00Z",
+    "capacity": 8,
+    "location": "Lab A1",
+    "status": "open"
+  },
+  {
+    "id": "500db71d",
+    "tutorId": "202305077",
+    "courseId": "MATH221",
+    "start": "2025-10-05T12:00:00Z",
+    "end": "2025-10-05T13:00:00Z",
+    "capacity": 6,
+    "location": "Math Center",
+    "status": "open"
+  },
+  {
+    "id": "00e58cd3",
+    "tutorId": "202305077",
+    "courseId": "PHYS110",
+    "start": "2025-10-07T09:00:00Z",
+    "end": "2025-10-07T10:30:00Z",
+    "capacity": 4,
+    "location": "Physics Lab",
+    "status": "closed"
+  },
+  {
+    "id": "f08a1312",
+    "tutorId": "202405145",
+    "courseId": "CHEM101",
+    "start": "2025-10-08T11:00:00Z",
+    "end": "2025-10-08T12:00:00Z",
+    "capacity": 3,
+    "location": "Chemistry R12",
+    "status": "open"
+  },
+  {
+    "id": "a1b2c3d4",
+    "tutorId": "202205023",
+    "courseId": "CMPS312",
+    "start": "2025-10-09T13:00:00Z",
+    "end": "2025-10-09T14:30:00Z",
+    "capacity": 6,
+    "location": "Computer Lab 3",
+    "status": "open"
+  },
+  {
+    "id": "e5f6g7h8",
+    "tutorId": "202305077",
+    "courseId": "MATH221",
+    "start": "2025-10-10T15:00:00Z",
+    "end": "2025-10-10T16:00:00Z",
+    "capacity": 5,
+    "location": "Student Center B12",
+    "status": "open"
+  },
+  {
+    "id": "i9j0k1l2",
+    "tutorId": "202405145",
+    "courseId": "CHEM101",
+    "start": "2025-10-11T10:00:00Z",
+    "end": "2025-10-11T11:30:00Z",
+    "capacity": 4,
+    "location": "Chemistry Lab 2",
+    "status": "open"
+  },
+  {
+    "id": "m3n4o5p6",
+    "tutorId": "202205023",
+    "courseId": "STAT210",
+    "start": "2025-10-12T08:00:00Z",
+    "end": "2025-10-12T09:00:00Z",
+    "capacity": 7,
+    "location": "Statistics Lab",
+    "status": "open"
+  },
+  {
+    "id": "q7r8s9t0",
+    "tutorId": "202305077",
+    "courseId": "PHYS110",
+    "start": "2025-10-13T16:00:00Z",
+    "end": "2025-10-13T17:30:00Z",
+    "capacity": 5,
+    "location": "Physics Building R301",
+    "status": "open"
+  },
+  {
+    "id": "u1v2w3x4",
+    "tutorId": "202405145",
+    "courseId": "CMPS312",
+    "start": "2025-10-14T11:00:00Z",
+    "end": "2025-10-14T12:00:00Z",
+    "capacity": 8,
+    "location": "Library 3F, Room 312",
+    "status": "cancelled"
+  },
+  {
+    "id": "y5z6a7b8",
+    "tutorId": "202205023",
+    "courseId": "MATH221",
+    "start": "2025-10-15T13:00:00Z",
+    "end": "2025-10-15T14:30:00Z",
+    "capacity": 6,
+    "location": "Math Tutorial Room",
+    "status": "open"
+  },
+  {
+    "id": "c9d0e1f2",
+    "tutorId": "202305077",
+    "courseId": "CHEM101",
+    "start": "2025-10-16T09:00:00Z",
+    "end": "2025-10-16T10:00:00Z",
+    "capacity": 4,
+    "location": "Science Building A101",
+    "status": "closed"
+  },
+  {
+    "id": "g3h4i5j6",
+    "tutorId": "202405145",
+    "courseId": "STAT210",
+    "start": "2025-10-17T14:00:00Z",
+    "end": "2025-10-17T15:30:00Z",
+    "capacity": 10,
+    "location": "Student Lounge 2",
+    "status": "open"
+  },
+  {
+    "id": "k7l8m9n0",
+    "tutorId": "202205023",
+    "courseId": "PHYS110",
+    "start": "2025-10-18T10:30:00Z",
+    "end": "2025-10-18T12:00:00Z",
+    "capacity": 5,
+    "location": "Engineering Lab E203",
+    "status": "open"
+  }
+]

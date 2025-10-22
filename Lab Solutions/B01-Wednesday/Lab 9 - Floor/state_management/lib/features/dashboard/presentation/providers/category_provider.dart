@@ -16,7 +16,7 @@ class CategoryNotifier extends AsyncNotifier<CategoryData> {
   @override
   Future<CategoryData> build() async {
     categoryRepo = await ref.read(categoryRepoProvider.future);
-    categoryRepo.getCategories().listen((categories) {
+    categoryRepo.observeCategories().listen((categories) {
       state = AsyncData(
         CategoryData(
           categories: categories,
