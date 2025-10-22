@@ -8,6 +8,7 @@ import 'package:state_management_tut/features/dashboard/domain/entities/category
       childColumns: ["categoryId"],
       parentColumns: ["id"],
       entity: Category,
+      onDelete: ForeignKeyAction.restrict,
     ),
   ],
 )
