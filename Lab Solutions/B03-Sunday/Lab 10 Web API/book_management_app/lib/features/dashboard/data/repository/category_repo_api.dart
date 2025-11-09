@@ -42,36 +42,17 @@ class CategoryRepoApi implements CategoryRepository {
   }
 
   @override
-  Future<void> addCategory(Category category) async {}
+  Future<void> addCategory(Category category) async {
+    _dio.post(_baseUrl, data: category.toJson());
+  }
 
   @override
   Future<void> updateCategory(Category category) async {
-    // ========== CURRENT IMPLEMENTATION: JSON FILE ==========
-    await _loadCategories();
-    if (category.id == null) {
-      throw Exception('Category ID is required for update');
-    }
-
-    final index = _categories.indexWhere((c) => c.id == category.id);
-    if (index != -1) {
-      _categories[index] = category;
-    }
-
-    // ========== TODO: SWITCH TO API ==========
-    // Replace the JSON code above with API implementation
+    _dio.put('$_baseUrl/${category.id}', data: category.toJson());
   }
 
   @override
   Future<void> deleteCategory(Category category) async {
-    // ========== CURRENT IMPLEMENTATION: JSON FILE ==========
-    await _loadCategories();
-    if (category.id == null) {
-      throw Exception('Category ID is required for deletion');
-    }
-
-    _categories.removeWhere((c) => c.id == category.id);
-
-    // ========== TODO: SWITCH TO API ==========
-    // Replace the JSON code above with API implementation
+    _dio.delete('$_baseUrl/${category.id}');
   }
 }
