@@ -19,7 +19,7 @@ class CategoryRepoApi implements CategoryRepository {
     if (response.statusCode != 200) {
       throw ("Could not fetch the data");
     }
-    final categoryMap = response.data;
+    final categoryMap = response.data as List<dynamic>;
     final categories = categoryMap
         .map((json) => Category.fromJson(json))
         .toList();
