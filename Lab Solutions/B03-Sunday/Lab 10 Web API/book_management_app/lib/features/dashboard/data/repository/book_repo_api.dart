@@ -1,5 +1,3 @@
-import 'dart:convert';
-import 'package:flutter/services.dart';
 import 'package:book_management_app/features/dashboard/domain/contracts/book_repo.dart';
 import 'package:book_management_app/features/dashboard/domain/entities/book.dart';
 import 'package:dio/dio.dart';
@@ -13,102 +11,75 @@ class BookRepoApi implements BookRepository {
 
   BookRepoApi(this._dio);
 
-  // In-memory storage for JSON-based implementation
-  List<Book> _books = [];
-  int _nextId = 1;
-
-  /// Load books from JSON file
-  Future<void> _loadBooks() async {
-    if (_books.isEmpty) {
-      final String jsonString =
-          await rootBundle.loadString('assets/data/books.json');
-      final List<dynamic> jsonList = json.decode(jsonString);
-      _books = jsonList.map((json) => Book.fromJson(json)).toList();
-      _nextId = _books.isEmpty
-          ? 1
-          : _books.map((b) => b.id ?? 0).reduce((a, b) => a > b ? a : b) + 1;
-    }
-  }
-
   @override
   Future<List<Book>> getBooks() async {
-    // ========== CURRENT IMPLEMENTATION: JSON FILE ==========
-    await _loadBooks();
-    return _books;
+    final response = await _dio.get(_baseUrl);
+    // check if we have good response
+    if (response.statusCode != 200) {
+      throw ("Error happened");
+    }
 
-    // ========== TODO: SWITCH TO API ==========
-    // Replace the JSON code above with API implementation
+    final List<dynamic> booksMap = response.data;
+
+    final books = booksMap.map((json) => Book.fromJson(json)).toList();
+
+    return books;
   }
 
   @override
   Future<Book?> getBookById(int id) async {
-    // ========== CURRENT IMPLEMENTATION: JSON FILE ==========
-    await _loadBooks();
-    try {
-      return _books.firstWhere((book) => book.id == id);
-    } catch (e) {
-      return null;
+    final response = await _dio.get('$_baseUrl/$id');
+
+    if (response.statusCode != 200) {
+      throw ("Error happened");
     }
 
-    // ========== TODO: SWITCH TO API ==========
-    // Replace the JSON code above with API implementation
+    return Book.fromJson(response.data);
   }
 
   @override
   Future<List<Book>> getBooksByCategory(int categoryId) async {
-    // ========== CURRENT IMPLEMENTATION: JSON FILE ==========
-    await _loadBooks();
-    return _books.where((book) => book.categoryId == categoryId).toList();
+    final response = await _dio.get('$_baseUrl?categoryId=$categoryId');
+    // check if we have good response
+    if (response.statusCode != 200) {
+      throw ("Error happened");
+    }
 
-    // ========== TODO: SWITCH TO API ==========
-    // Replace the JSON code above with API implementation
+    final List<dynamic> booksMap = response.data;
+
+    final books = booksMap.map((json) => Book.fromJson(json)).toList();
+
+    return books;
   }
 
   @override
   Future<void> addBook(Book book) async {
-    // ========== CURRENT IMPLEMENTATION: JSON FILE ==========
-    await _loadBooks();
-    final newBook = Book(
-      id: _nextId++,
-      title: book.title,
-      author: book.author,
-      year: book.year,
-      categoryId: book.categoryId,
-    );
-    _books.add(newBook);
-
-    // ========== TODO: SWITCH TO API ==========
-    // Replace the JSON code above with API implementation
+    final response = await _dio.post(_baseUrl, data: book.toJson());
+    // check if we have good response
+    if (response.statusCode != 201) {
+      throw ("Error happened");
+    }
   }
 
   @override
   Future<void> updateBook(Book book) async {
-    // ========== CURRENT IMPLEMENTATION: JSON FILE ==========
-    await _loadBooks();
-    if (book.id == null) {
-      throw Exception('Book ID is required for update');
-    }
+    final response = await _dio.put(
+      '$_baseUrl/${book.id}',
+      data: book.toJson(),
+    );
 
-    final index = _books.indexWhere((b) => b.id == book.id);
-    if (index != -1) {
-      _books[index] = book;
+    if (response.statusCode != 200) {
+      throw ("Error happened");
     }
-
-    // ========== TODO: SWITCH TO API ==========
-    // Replace the JSON code above with API implementation
   }
 
   @override
   Future<void> deleteBook(Book book) async {
-    // ========== CURRENT IMPLEMENTATION: JSON FILE ==========
-    await _loadBooks();
-    if (book.id == null) {
-      throw Exception('Book ID is required for deletion');
+    final response = await _dio.delete('$_baseUrl/${book.id}');
+
+    if (response.statusCode != 200) {
+      // handle error appropriately with better message
+      throw ("Error happened");
     }
-
-    _books.removeWhere((b) => b.id == book.id);
-
-    // ========== TODO: SWITCH TO API ==========
-    // Replace the JSON code above with API implementation
   }
 }
