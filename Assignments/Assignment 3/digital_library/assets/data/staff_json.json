@@ -1,0 +1,23 @@
+[
+  {
+    "staffId": "S001",
+    "username": "admin",
+    "password": "admin123",
+    "fullName": "Ahmed Al-Thani",
+    "role": "Administrator"
+  },
+  {
+    "staffId": "S002",
+    "username": "librarian",
+    "password": "lib123",
+    "fullName": "Fatima Al-Kuwari",
+    "role": "Librarian"
+  },
+  {
+    "staffId": "S003",
+    "username": "staff",
+    "password": "staff123",
+    "fullName": "Mohammed Al-Dosari",
+    "role": "Library Staff"
+  }
+]

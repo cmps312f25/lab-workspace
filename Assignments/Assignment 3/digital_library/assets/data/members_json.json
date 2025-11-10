@@ -1,0 +1,56 @@
+[
+  {
+    "id": "M001",
+    "name": "Ahmed Al-Rashid",
+    "email": "ahmed.alrashid@qu.edu.qa",
+    "phone": "+974-5512-3456",
+    "memberType": "student",
+    "memberSince": "2024-01-15T00:00:00.000Z",
+    "profileImageUrl": null
+  },
+  {
+    "id": "M002",
+    "name": "Fatima Al-Kuwari",
+    "email": "fatima.alkuwari@qu.edu.qa",
+    "phone": "+974-5523-4567",
+    "memberType": "student",
+    "memberSince": "2024-02-01T00:00:00.000Z",
+    "profileImageUrl": null
+  },
+  {
+    "id": "M003",
+    "name": "Omar Hassan",
+    "email": "omar.hassan@qu.edu.qa",
+    "phone": "+974-5534-5678",
+    "memberType": "student",
+    "memberSince": "2023-09-10T00:00:00.000Z",
+    "profileImageUrl": null
+  },
+  {
+    "id": "M004",
+    "name": "Noor Al-Thani",
+    "email": "noor.althani@qu.edu.qa",
+    "phone": "+974-5545-6789",
+    "memberType": "student",
+    "memberSince": "2024-01-20T00:00:00.000Z",
+    "profileImageUrl": null
+  },
+  {
+    "id": "M005",
+    "name": "Dr. Khalid Ibrahim",
+    "email": "khalid.ibrahim@qu.edu.qa",
+    "phone": "+974-4403-1234",
+    "memberType": "faculty",
+    "memberSince": "2020-08-01T00:00:00.000Z",
+    "profileImageUrl": null
+  },
+  {
+    "id": "M006",
+    "name": "Prof. Maryam Al-Mansoori",
+    "email": "maryam.almansoori@qu.edu.qa",
+    "phone": "+974-4403-2345",
+    "memberType": "faculty",
+    "memberSince": "2018-09-01T00:00:00.000Z",
+    "profileImageUrl": null
+  }
+]
