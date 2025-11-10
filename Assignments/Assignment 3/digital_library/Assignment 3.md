@@ -152,16 +152,16 @@ Update `lib/main.dart`:
 
 ## Grading Rubric
 
-| Component                                            | Points        | Requirements                                                                    |
-| ---------------------------------------------------- | ------------- | ------------------------------------------------------------------------------- |
-| **Entity Annotations**                         | 15            | All 5 entities correctly annotated (@Entity, @PrimaryKey, foreign keys)         |
-| **Type Converters**                            | 5             | DateTimeConverter implemented                                                   |
-| **DAOs with Streams**                          | 15            | All 5 DAOs with Stream queries and CRUD operations                              |
-| **AppDatabase**                                | 10            | Correct configuration, code generates successfully                              |
-| **Database Seeder**                            | 10            | Seeds all tables with correct dependency order                                  |
-| **Repository Implementations with working UI** | 40            | All 5 repositories updated - CRUD operations work, UI renders and displays data |
-| **Repository Providers**                       | 5             | Database provider created, all 4 feature repo_providers updated                 |
-| **TOTAL**                                      | **100** |                                                                                 |
+| Component                            | Points        | Requirements                                                                      |
+| ------------------------------------ | ------------- | --------------------------------------------------------------------------------- |
+| **Entity Annotations**         | 15            | All 5 entities correctly annotated (@Entity, @PrimaryKey, foreign keys)           |
+| **Type Converters**            | 5             | DateTimeConverter implemented                                                     |
+| **DAOs with Streams**          | 15            | All 5 DAOs with Stream queries and CRUD operations                                |
+| **AppDatabase**                | 10            | Correct configuration, code generates successfully                                |
+| **Database Seeder**            | 10            | Seeds all tables with correct dependency order                                    |
+| **Repository Implementations** | 35            | All 5 repositories updated - CRUD operations work, UI renders and displays data  |
+| **Repository Providers**       | 5             | Database provider created, all 4 feature repo_providers updated                   |
+| **TOTAL**                      | **100** |                                                                                   |
 
 ### Grading Criteria
 
