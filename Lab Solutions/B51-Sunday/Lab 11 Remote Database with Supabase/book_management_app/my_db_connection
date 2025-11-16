@@ -1,0 +1,6 @@
+# Supabase Configuration
+# Replace these values with your actual Supabase project credentials
+# Get these from: Supabase Dashboard -> Settings -> API
+
+SUPABASE_URL=https://avelwlxrprjacmjnyxsp.supabase.co
+SUPABASE_ANON_KEY=sb_secret_24QE-p6Dg6lwAM1p6s_M8w_UpKsPbiI 
