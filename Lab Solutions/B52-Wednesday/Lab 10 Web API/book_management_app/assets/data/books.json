@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "1984",
+    "author": "George Orwell",
+    "year": 1949,
+    "categoryId": 1
+  },
+  {
+    "id": 2,
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "year": 1960,
+    "categoryId": 1
+  },
+  {
+    "id": 3,
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "year": 1965,
+    "categoryId": 2
+  },
+  {
+    "id": 4,
+    "title": "Foundation",
+    "author": "Isaac Asimov",
+    "year": 1951,
+    "categoryId": 2
+  },
+  {
+    "id": 5,
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "year": 1937,
+    "categoryId": 4
+  },
+  {
+    "id": 6,
+    "title": "Sherlock Holmes",
+    "author": "Arthur Conan Doyle",
+    "year": 1892,
+    "categoryId": 3
+  }
+]
