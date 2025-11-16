@@ -75,4 +75,13 @@ class CategoryRepoApi implements CategoryRepository {
       throw Exception('Failed to delete category: $e');
     }
   }
+
+  @override
+  Stream<List<Category>> watchCategories() {
+    return _client
+        .from(categoryTable)
+        .stream(primaryKey: ["id"])
+        .order("updated_at")
+        .map((data) => data.map((json) => Category.fromJson(json)).toList());
+  }
 }
