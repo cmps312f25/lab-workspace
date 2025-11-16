@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Classic Literature",
+    "description": "Timeless works of fiction and non-fiction"
+  },
+  {
+    "id": 2,
+    "name": "Science Fiction",
+    "description": "Futuristic and imaginative stories"
+  },
+  {
+    "id": 3,
+    "name": "Mystery",
+    "description": "Suspenseful detective and crime stories"
+  },
+  {
+    "id": 4,
+    "name": "Fantasy",
+    "description": "Magical and mythical adventures"
+  }
+]
