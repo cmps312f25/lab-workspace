@@ -1,6 +1,5 @@
 import 'package:book_management_app/features/dashboard/domain/contracts/category_repo.dart';
 import 'package:book_management_app/features/dashboard/domain/entities/category.dart';
-import 'package:dio/dio.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class CategoryRepoApi implements CategoryRepository {
@@ -38,10 +37,7 @@ class CategoryRepoApi implements CategoryRepository {
   @override
   Future<void> addCategory(Category category) async {
     try {
-      await _client.from(categoryTable).insert({
-        'name': category.name,
-        'description': category.description,
-      });
+      await _client.from(categoryTable).insert(category.toJson());
     } catch (e) {
       throw Exception('Failed to add category: $e');
     }
@@ -74,5 +70,14 @@ class CategoryRepoApi implements CategoryRepository {
     } catch (e) {
       throw Exception('Failed to delete category: $e');
     }
+  }
+
+  @override
+  Stream<List<Category>> watchCategories() {
+    return _client
+        .from(categoryTable)
+        .stream(primaryKey: ["id"])
+        .order("name")
+        .map((data) => data.map((json) => Category.fromJson(json)).toList());
   }
 }
