@@ -24,7 +24,11 @@ class CategoryRepoApi implements CategoryRepository {
   @override
   Future<Category?> getCategoryById(int id) async {
     try {
-      final response = await _client.from(categoryTable).select().eq("id", id).single();
+      final response = await _client
+          .from(categoryTable)
+          .select()
+          .eq("id", id)
+          .single();
       return Category.fromJson(response);
     } catch (e) {
       return null;
@@ -34,7 +38,10 @@ class CategoryRepoApi implements CategoryRepository {
   @override
   Future<void> addCategory(Category category) async {
     try {
-      await _client.from(categoryTable).insert(category.toJson());
+      await _client.from(categoryTable).insert({
+        'name': category.name,
+        'description': category.description,
+      });
     } catch (e) {
       throw Exception('Failed to add category: $e');
     }
@@ -47,10 +54,10 @@ class CategoryRepoApi implements CategoryRepository {
     }
 
     try {
-      await _dio.put(
-        '$_baseUrl/${category.id}',
-        data: {'name': category.name, 'description': category.description},
-      );
+      await _client
+          .from(categoryTable)
+          .update(category.toJson())
+          .eq("id", category.id!);
     } catch (e) {
       throw Exception('Failed to update category: $e');
     }
@@ -63,7 +70,7 @@ class CategoryRepoApi implements CategoryRepository {
     }
 
     try {
-      await _dio.delete('$_baseUrl/${category.id}');
+      await _client.from(categoryTable).delete().eq("id", category.id!);
     } catch (e) {
       throw Exception('Failed to delete category: $e');
     }
