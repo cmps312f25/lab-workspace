@@ -88,68 +88,73 @@ class BooksByCategoryScreen extends ConsumerWidget {
           }
 
           return ListView.builder(
-            padding: const EdgeInsets.all(8.0),
-            itemCount: books.length,
-            itemBuilder: (context, index) {
-              final book = books[index];
-              return Card(
-                margin: const EdgeInsets.symmetric(
-                  vertical: 8.0,
-                  horizontal: 4.0,
-                ),
-                elevation: 2,
-                child: ListTile(
-                  contentPadding: const EdgeInsets.all(16.0),
-                  title: Text(
-                    book.title,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+              padding: const EdgeInsets.all(8.0),
+              itemCount: books.length,
+              itemBuilder: (context, index) {
+                final book = books[index];
+                return Card(
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 8.0,
+                    horizontal: 4.0,
+                  ),
+                  elevation: 2,
+                  child: ListTile(
+                    contentPadding: const EdgeInsets.all(16.0),
+                    title: Text(
+                      book.title,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 8),
+                        Text(
+                          'Author: ${book.author}',
+                          style: const TextStyle(fontSize: 14),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          'Year: ${book.year}',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                      ],
+                    ),
+                    leading: Icon(
+                      Icons.book,
+                      color: Theme.of(context).colorScheme.primary,
+                      size: 32,
+                    ),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.edit),
+                          color: Colors.blue,
+                          onPressed: () {
+                            context.push('/book/edit', extra: book);
+                          },
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.delete),
+                          color: Colors.red,
+                          onPressed: () => _deleteBook(context, ref, book),
+                        ),
+                      ],
                     ),
                   ),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 8),
-                      Text(
-                        'Author: ${book.author}',
-                        style: const TextStyle(fontSize: 14),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        'Year: ${book.year}',
-                        style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-                      ),
-                    ],
-                  ),
-                  leading: Icon(
-                    Icons.book,
-                    color: Theme.of(context).colorScheme.primary,
-                    size: 32,
-                  ),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.edit),
-                        color: Colors.blue,
-                        onPressed: () {
-                          context.push('/book/edit', extra: book);
-                        },
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.delete),
-                        color: Colors.red,
-                        onPressed: () => _deleteBook(context, ref, book),
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-          );
+                );
+              },
+            );
         },
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => const Center(
+          child: CircularProgressIndicator(),
+        ),
         error: (error, stack) => Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
