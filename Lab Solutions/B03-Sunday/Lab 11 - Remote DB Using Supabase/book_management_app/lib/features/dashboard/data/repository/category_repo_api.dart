@@ -1,6 +1,5 @@
 import 'package:book_management_app/features/dashboard/domain/contracts/category_repo.dart';
 import 'package:book_management_app/features/dashboard/domain/entities/category.dart';
-import 'package:dio/dio.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class CategoryRepoApi implements CategoryRepository {
