@@ -1,19 +1,20 @@
 import 'package:book_management_app/features/dashboard/domain/contracts/category_repo.dart';
 import 'package:book_management_app/features/dashboard/domain/entities/category.dart';
 import 'package:dio/dio.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class CategoryRepoApi implements CategoryRepository {
-  final Dio _dio;
-  static const String _baseUrl =
-      'https://cmps312-books-api.vercel.app/api/categories';
+  final SupabaseClient _client;
+  final String categoryTable = "categories";
 
-  CategoryRepoApi(this._dio);
+  CategoryRepoApi(this._client);
 
   @override
   Future<List<Category>> getCategories() async {
     try {
-      final response = await _dio.get(_baseUrl);
-      final List<dynamic> data = response.data as List;
+      final response = await _client.from(categoryTable).select();
+
+      final List<dynamic> data = response as List;
       return data.map((json) => Category.fromJson(json)).toList();
     } catch (e) {
       throw Exception('Failed to fetch categories: $e');
@@ -23,8 +24,13 @@ class CategoryRepoApi implements CategoryRepository {
   @override
   Future<Category?> getCategoryById(int id) async {
     try {
-      final response = await _dio.get('$_baseUrl/$id');
-      return Category.fromJson(response.data);
+      final response = await _client
+          .from(categoryTable)
+          .select()
+          .eq("id", id)
+          .single();
+
+      return Category.fromJson(response);
     } catch (e) {
       return null;
     }
@@ -33,13 +39,10 @@ class CategoryRepoApi implements CategoryRepository {
   @override
   Future<void> addCategory(Category category) async {
     try {
-      await _dio.post(
-        _baseUrl,
-        data: {
-          'name': category.name,
-          'description': category.description,
-        },
-      );
+      await _client.from(categoryTable).insert({
+        'name': category.name,
+        'description': category.description,
+      });
     } catch (e) {
       throw Exception('Failed to add category: $e');
     }
@@ -52,13 +55,10 @@ class CategoryRepoApi implements CategoryRepository {
     }
 
     try {
-      await _dio.put(
-        '$_baseUrl/${category.id}',
-        data: {
-          'name': category.name,
-          'description': category.description,
-        },
-      );
+      await _client
+          .from(categoryTable)
+          .update({'name': category.name, 'description': category.description})
+          .eq("id", category.id!);
     } catch (e) {
       throw Exception('Failed to update category: $e');
     }
@@ -71,7 +71,7 @@ class CategoryRepoApi implements CategoryRepository {
     }
 
     try {
-      await _dio.delete('$_baseUrl/${category.id}');
+      await _client.from(categoryTable).delete().eq("id", category.id!);
     } catch (e) {
       throw Exception('Failed to delete category: $e');
     }
