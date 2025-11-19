@@ -1,20 +1,21 @@
 import 'package:book_management_app/features/dashboard/domain/contracts/category_repo.dart';
 import 'package:book_management_app/features/dashboard/domain/entities/category.dart';
+import 'package:dio/dio.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class CategoryRepoApi implements CategoryRepository {
   final SupabaseClient _client;
-  final String categoriesTable = "category";
-  // _client.from(tablename).method().where
+  final String categoryTable = "category";
+
+  // _client.from(tablename).de().eq().order().single()
 
   CategoryRepoApi(this._client);
 
   @override
   Future<List<Category>> getCategories() async {
     try {
-      final response = await _client.from(categoriesTable).select();
-
-      final List<dynamic> data = response as List;
+      final data = await _client.from(categoryTable).select();
+      // final List<dynamic> data = response.data as List;
       return data.map((json) => Category.fromJson(json)).toList();
     } catch (e) {
       throw Exception('Failed to fetch categories: $e');
@@ -24,12 +25,12 @@ class CategoryRepoApi implements CategoryRepository {
   @override
   Future<Category?> getCategoryById(int id) async {
     try {
-      final response = await _client
-          .from(categoriesTable)
+      final data = await _client
+          .from(categoryTable)
           .select()
           .eq("id", id)
           .single();
-      return Category.fromJson(response);
+      return Category.fromJson(data);
     } catch (e) {
       return null;
     }
@@ -38,7 +39,7 @@ class CategoryRepoApi implements CategoryRepository {
   @override
   Future<void> addCategory(Category category) async {
     try {
-      await _client.from(categoriesTable).insert({
+      await _client.from(categoryTable).insert({
         'name': category.name,
         'description': category.description,
       });
@@ -54,10 +55,10 @@ class CategoryRepoApi implements CategoryRepository {
     }
 
     try {
-      await _client
-          .from(categoriesTable)
-          .update(category.toJson())
-          .eq("id", category.id!);
+      await _dio.put(
+        '$_baseUrl/${category.id}',
+        data: {'name': category.name, 'description': category.description},
+      );
     } catch (e) {
       throw Exception('Failed to update category: $e');
     }
@@ -70,18 +71,9 @@ class CategoryRepoApi implements CategoryRepository {
     }
 
     try {
-      await _client.from(categoriesTable).delete().eq("id", category.id!);
+      await _dio.delete('$_baseUrl/${category.id}');
     } catch (e) {
       throw Exception('Failed to delete category: $e');
     }
-  }
-
-  @override
-  Stream<List<Category>> watchCategories() {
-    return _client
-        .from(categoriesTable)
-        .stream(primaryKey: ["id"])
-        .order("name")
-        .map((data) => data.map((json) => Category.fromJson(json)).toList());
   }
 }
