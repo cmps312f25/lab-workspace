@@ -39,10 +39,7 @@ class CategoryRepoApi implements CategoryRepository {
   @override
   Future<void> addCategory(Category category) async {
     try {
-      await _client.from(categoryTable).insert({
-        'name': category.name,
-        'description': category.description,
-      });
+      await _client.from(categoryTable).insert(category.toJson());
     } catch (e) {
       throw Exception('Failed to add category: $e');
     }
@@ -55,10 +52,10 @@ class CategoryRepoApi implements CategoryRepository {
     }
 
     try {
-      await _dio.put(
-        '$_baseUrl/${category.id}',
-        data: {'name': category.name, 'description': category.description},
-      );
+      await _client
+          .from(categoryTable)
+          .update(category.toJson())
+          .eq("id", category.id!);
     } catch (e) {
       throw Exception('Failed to update category: $e');
     }
@@ -71,9 +68,17 @@ class CategoryRepoApi implements CategoryRepository {
     }
 
     try {
-      await _dio.delete('$_baseUrl/${category.id}');
+      await _client.from(categoryTable).delete().eq("id", category.id!);
     } catch (e) {
       throw Exception('Failed to delete category: $e');
     }
+  }
+
+  @override
+  Stream<List<Category>> watchCategories() {
+    return _client
+        .from(categoryTable)
+        .stream(primaryKey: ["id"])
+        .map((data) => data.map((json) => Category.fromJson(json)).toList());
   }
 }
