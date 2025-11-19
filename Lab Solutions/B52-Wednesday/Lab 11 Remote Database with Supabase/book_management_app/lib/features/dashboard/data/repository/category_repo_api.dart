@@ -79,6 +79,7 @@ class CategoryRepoApi implements CategoryRepository {
     return _client
         .from(categoryTable)
         .stream(primaryKey: ["id"])
+        .order("name")
         .map((data) => data.map((json) => Category.fromJson(json)).toList());
   }
 }

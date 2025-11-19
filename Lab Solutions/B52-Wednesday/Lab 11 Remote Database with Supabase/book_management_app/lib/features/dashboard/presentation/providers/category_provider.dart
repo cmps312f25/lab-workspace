@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:book_management_app/features/dashboard/domain/contracts/category_repo.dart';
 import 'package:book_management_app/features/dashboard/domain/entities/category.dart';
 import 'package:book_management_app/features/dashboard/presentation/providers/repo_providers.dart';
@@ -12,30 +14,41 @@ class CategoryData {
 
 class CategoryNotifier extends AsyncNotifier<CategoryData> {
   CategoryRepository get _categoryRepo => ref.read(categoryRepoProvider);
+  late final StreamSubscription _streamSubscription;
 
   @override
   Future<CategoryData> build() async {
+    _streamSubscription = _categoryRepo.watchCategories().listen((categories) {
+      state = AsyncData(CategoryData(categories: categories));
+    });
+
+    ref.onDispose(() {
+      _streamSubscription.cancel();
+    });
+
     final categories = await _categoryRepo.getCategories();
     return CategoryData(categories: categories);
   }
 
-  Future<void> refreshCategories() async {
-    state = const AsyncLoading();
-    try {
-      final categories = await _categoryRepo.getCategories();
-      state = AsyncData(CategoryData(
-        categories: categories,
-        selectedCategory: state.value?.selectedCategory,
-      ));
-    } catch (e, st) {
-      state = AsyncError(e, st);
-    }
-  }
+  // Future<void> refreshCategories() async {
+  //   state = const AsyncLoading();
+  //   try {
+  //     final categories = await _categoryRepo.getCategories();
+  //     state = AsyncData(
+  //       CategoryData(
+  //         categories: categories,
+  //         selectedCategory: state.value?.selectedCategory,
+  //       ),
+  //     );
+  //   } catch (e, st) {
+  //     state = AsyncError(e, st);
+  //   }
+  // }
 
   Future<void> addCategory(Category category) async {
     try {
       await _categoryRepo.addCategory(category);
-      await refreshCategories();
+      // await refreshCategories();
     } catch (e) {
       rethrow;
     }
@@ -44,7 +57,7 @@ class CategoryNotifier extends AsyncNotifier<CategoryData> {
   Future<void> updateCategory(Category category) async {
     try {
       await _categoryRepo.updateCategory(category);
-      await refreshCategories();
+      // await refreshCategories();
     } catch (e) {
       rethrow;
     }
@@ -53,7 +66,7 @@ class CategoryNotifier extends AsyncNotifier<CategoryData> {
   Future<void> deleteCategory(Category category) async {
     try {
       await _categoryRepo.deleteCategory(category);
-      await refreshCategories();
+      // await refreshCategories();
     } catch (e) {
       rethrow;
     }
