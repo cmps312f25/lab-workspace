@@ -1,6 +1,6 @@
 # Assignment 5: Digital Library - Supabase Integration
 
-**Due Date:** 30 Nov 2025
+**Due Date:** 29 Nov 2025
 **Points:** 100
 
 ---
