@@ -54,6 +54,33 @@ The app must:
 - Support search and filter functionality
 - Support real-time updates using Supabase streams
 
+### Database CRUD Requirements
+
+Implement Supabase repository methods to support all CRUD operations:
+
+- **Create** - Insert new records into Supabase tables (books, authors, members, transactions)
+- **Read** - Query and fetch data from Supabase (single records and lists)
+- **Update** - Modify existing records in Supabase tables
+- **Delete** - Remove records from Supabase tables
+
+Your repository implementations must use Supabase client methods:
+
+- `supabase.from('table').insert()` for creating records
+- `supabase.from('table').select()` for reading records
+- `supabase.from('table').update()` for updating records
+- `supabase.from('table').delete()` for deleting records
+- `supabase.from('table').stream()` for real-time updates
+
+### Authentication Requirements
+
+The app must implement **Supabase Authentication**:
+
+- **User Registration** - New users can sign up with email and password
+- **User Login** - Existing users can sign in with email and password
+- **User Logout** - Users can securely sign out
+- **Session Persistence** - Users remain logged in across app restarts
+- **Protected Routes** - Unauthenticated users are redirected to login screen
+
 **Important:** If something works in the JSON app, it must work in your Supabase app. This document is a guide, not a complete list of every implementation detail. You are responsible for ensuring full functionality.
 
 ---
@@ -68,13 +95,13 @@ The app must:
 
 Submit to your **private repository** under `Assignments/Assignment5/`:
 
-### Required Files
+### Required Files:
 
 1. **Project Code** - Complete Flutter project that runs with Supabase
 2. **schema.sql** - Your SQL statements for creating tables and RLS policies
 3. **Testing_Sheet.docx** - Screenshots demonstrating all features work
 
-### Submission Structure
+### Submission Structure:
 
 ```
 your-repo/
@@ -97,8 +124,9 @@ your-repo/
 
 | Component                       | Points        | Requirements                                                         |
 | ------------------------------- | ------------- | -------------------------------------------------------------------- |
-| **Database Setup**        | 25            | Tables created correctly, RLS enabled, data seeded                   |
-| **App Functionality**     | 60            | All features work as in the JSON app (CRUD, search, filter, streams) |
+| **Database Setup**        | 20            | Tables created correctly, RLS enabled, data seeded                   |
+| **Authentication**        | 20            | Sign up, login, logout, session persistence, protected routes        |
+| **App Functionality**     | 45            | All features work as in the JSON app (CRUD, search, filter, streams) |
 | **Testing Documentation** | 15            | Screenshots demonstrating all features work                          |
 | **TOTAL**                 | **100** |                                                                      |
 
@@ -116,6 +144,8 @@ your-repo/
 - [Supabase Flutter Documentation](https://supabase.com/docs/reference/dart/introduction)
 - [Supabase Database Guide](https://supabase.com/docs/guides/database)
 - [Supabase Real-time](https://supabase.com/docs/guides/realtime)
+- [Supabase Authentication](https://supabase.com/docs/guides/auth)
+- [Supabase Auth with Flutter](https://supabase.com/docs/guides/auth/quickstarts/flutter)
 - [Row Level Security](https://supabase.com/docs/guides/auth/row-level-security)
 - Lab materials on Supabase
 
