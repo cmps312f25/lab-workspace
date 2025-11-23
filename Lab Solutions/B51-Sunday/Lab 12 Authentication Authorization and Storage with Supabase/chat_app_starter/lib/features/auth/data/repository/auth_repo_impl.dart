@@ -72,30 +72,34 @@ class AuthRepoImpl implements AuthRepository {
     // 4. Return the AppUser
     // throw UnimplementedError('TODO: Implement signUp');
 
-    // create the user in the user table
-    final response = await _client.auth.signUp(
-      email: email,
-      password: password,
-      data: {'display_name': displayName},
-    );
+    try {
+      // create the user in the user table
+      final response = await _client.auth.signUp(
+        email: email,
+        password: password,
+        data: {'display_name': displayName},
+      );
 
-    // we want to check if everything went well
-    if (response.user == null) {
-      throw ("Unable to create the user");
+      // we want to check if everything went well
+      if (response.user == null) {
+        throw ("Unable to create the user");
+      }
+
+      // we do have a user created so we will convert it , to the user object we have
+
+      final appUser = AppUser(
+        id: response.user!.id,
+        email: response.user!.email!,
+        displayName: response.user!.appMetadata["display_name"],
+      );
+
+      // create the user profile
+      await _client.from(profilesTable).insert(appUser.toJson());
+
+      return appUser;
+    } catch (e) {
+      throw Exception('Failed to sign up: $e');
     }
-
-    // we do have a user created so we will convert it , to the user object we have
-
-    final appUser = AppUser(
-      id: response.user!.id,
-      email: response.user!.email!,
-      displayName: response.user!.appMetadata["display_name"],
-    );
-
-    // create the user profile
-    await _client.from(profilesTable).insert(appUser.toJson());
-
-    return appUser;
   }
 
   /// TODO 2: Implement Sign In
@@ -111,7 +115,28 @@ class AuthRepoImpl implements AuthRepository {
     required String email,
     required String password,
   }) async {
-    throw UnimplementedError('TODO: Implement SignIn');
+    // throw UnimplementedError('TODO: Implement SignIn');
+
+    try {
+      final response = await _client.auth.signInWithPassword(
+        email: email,
+        password: password,
+      );
+
+      if (response.user == null) {
+        throw ('Failed to sign in');
+      }
+
+      final appUser = AppUser(
+        id: response.user!.id,
+        email: response.user!.email!,
+        displayName: response.user!.appMetadata["display_name"],
+      );
+
+      return appUser;
+    } catch (e) {
+      throw Exception('Failed to sign in: $e');
+    }
   }
 
   /// TODO 3: Implement Sign Out
@@ -123,9 +148,7 @@ class AuthRepoImpl implements AuthRepository {
   ///
   @override
   Future<void> signOut() async {
-    // TODO: Implement sign out
-    // Just call _client.auth.signOut()
-    throw UnimplementedError('TODO: Implement signOut');
+    await _client.auth.signOut();
   }
 
   /// Get user profile from database (already implemented for you)
