@@ -1,0 +1,211 @@
+
+# Assignment 3: Digital Library - Database Integration with Floor ORM
+
+**Due Date:** 22-November-2025
+**Points:** 100
+
+---
+
+## Overview
+
+Migrate the Digital Library application from JSON-based storage to persistent SQLite database using **Floor ORM**. Only the data layer should change - UI and domain layers remain unchanged.
+
+### What You're Given
+
+A fully functional Digital Library app with:
+
+- 7 screens (Login, Home, Library Items, Members, Transactions)
+- Repository implementations using JSON file storage
+- Repository contracts that support BOTH Future and Stream methods
+- Riverpod state management with AsyncNotifier pattern
+- Sample JSON data in `assets/data/` folder
+
+### Test Credentials
+
+- `admin` / `admin123`
+- `librarian` / `lib123`
+- `staff` / `staff123`
+
+---
+
+## Requirements
+
+**Note:** Floor dependencies are already added to `pubspec.yaml`. Run `flutter pub get` to install them.
+
+### 1. Entity Annotations (20 points)
+
+Annotate 5 domain entities with Floor annotations:
+
+#### Files to Update:
+
+- `lib/features/library_items/domain/entities/author.dart`
+- `lib/features/library_items/domain/entities/book.dart`
+- `lib/features/members/domain/entities/member.dart`
+- `lib/features/auth/domain/entities/staff.dart`
+- `lib/features/borrowing/domain/entities/transaction.dart`
+
+#### Requirements:
+
+- Mark each class as a database entity
+- Define primary keys
+- Define foreign key relationships:
+  - Book → Author (authorId)
+  - Transaction → Member (memberId)
+  - Transaction → Book (bookId)
+- Ignore computed properties (methods, getters)
+
+**Note:** Entities are already flat - they only store primitive fields and foreign key IDs.
+
+### 2. Type Converters (3 points)
+
+Create `lib/core/database/type_converters.dart`:
+
+- Implement DateTimeConverter to handle DateTime fields
+
+### 3. DAOs with Streams (20 points)
+
+Create 5 DAOs, each with:
+
+- Stream-based queries for reactive UI (e.g., `Stream<List<Book>> watchAllBooks()`)
+- Future-based queries for one-time operations (e.g., `Future<List<Book>> getAllBooks()`)
+- CRUD operations (insert, update, delete)
+- Search queries where applicable
+
+#### Files to Create:
+
+- `lib/features/library_items/data/daos/author_dao.dart`
+- `lib/features/library_items/data/daos/book_dao.dart`
+- `lib/features/members/data/daos/member_dao.dart`
+- `lib/features/auth/data/daos/staff_dao.dart`
+- `lib/features/borrowing/data/daos/transaction_dao.dart`
+
+### 4. AppDatabase (8 points)
+
+Create `lib/core/database/app_database.dart`:
+
+- Configure database with all 5 entities
+- Register DateTimeConverter
+- Provide DAO getter methods
+- Set database version to 1
+
+### 5. Generate Database Code
+
+Run: `dart run build_runner build --delete-conflicting-outputs`
+
+Fix any errors before proceeding.
+
+### 6. Database Seeder (8 points)
+
+Create `lib/core/database/database_seeder.dart`:
+
+- Load JSON data from assets folder
+- Insert data in correct order: Authors → Books → Members → Staff → Transactions
+- Check if database is already seeded to avoid duplicates
+- Handle `authorIds` array in JSON (use first author as `authorId`)
+
+### 7. Update Repository Implementations (20 points)
+
+Update existing repository implementations to use database instead of JSON:
+
+#### Files to Update:
+
+- `lib/features/auth/data/repositories/auth_repository_impl.dart`
+- `lib/features/library_items/data/repositories/author_repository_impl.dart`
+- `lib/features/library_items/data/repositories/library_repository_impl.dart`
+- `lib/features/members/data/repositories/member_repository_impl.dart`
+- `lib/features/borrowing/data/repositories/transaction_repository_impl.dart`
+
+#### Requirements:
+
+- Inject AppDatabase in constructor
+- Replace JSON file operations with DAO calls
+- Implement ALL methods from repository contract
+- Simply delegate each method to corresponding DAO method
+
+### 8. Update Repository Providers (6 points)
+
+Create database provider and update feature repository providers:
+
+#### File to Create:
+
+- `lib/core/database/database_provider.dart` - FutureProvider for AppDatabase
+
+#### Files to Update:
+
+- `lib/features/library_items/presentation/providers/repo_providers.dart`
+- `lib/features/members/presentation/providers/repo_providers.dart`
+- `lib/features/borrowing/presentation/providers/repo_providers.dart`
+- `lib/features/auth/presentation/providers/repo_providers.dart`
+
+**Requirements:** Inject database into repository implementations.
+
+### 9. Initialize Database in main.dart
+
+Update `lib/main.dart`:
+
+- Initialize database before runApp
+- Seed database on first run
+- Handle errors appropriately
+
+**Note:** Notifiers are already implemented with Stream subscriptions and will automatically work with database repositories.
+
+---
+
+## Grading Rubric
+
+| Component                            | Points        | Requirements                                                                    |
+| ------------------------------------ | ------------- | ------------------------------------------------------------------------------- |
+| **Entity Annotations**         | 15            | All 5 entities correctly annotated (@Entity, @PrimaryKey, foreign keys)         |
+| **Type Converters**            | 5             | DateTimeConverter implemented                                                   |
+| **DAOs with Streams**          | 15            | All 5 DAOs with Stream queries and CRUD operations                              |
+| **AppDatabase**                | 10            | Correct configuration, code generates successfully                              |
+| **Database Seeder**            | 10            | Seeds all tables with correct dependency order                                  |
+| **Repository Implementations** | 35            | All 5 repositories updated - CRUD operations work, UI renders and displays data |
+| **Repository Providers**       | 5             | Database provider created, all 4 feature repo_providers updated                 |
+| **TOTAL**                      | **100** |                                                                                 |
+
+### Grading Criteria
+
+Possible grading for each component:
+
+- **Complete and Working** (get 70% of the assigned weight)
+- **Complete and Not Working** (lose 40% of assigned weight)
+- **Not done** (get 0%)
+- The remaining grade is assigned to the quality of implementation
+
+**Important:** For Repository Implementations to be considered "Complete and Working", all CRUD operations (add, update, delete, search) must function correctly, **AND the UI must render and display data properly**. The app must launch without errors and all screens must be accessible.
+
+## Submission
+
+Submit to your **private repository** under `Assignments/Assignment3/`:
+
+### Required Files:
+
+1. **Project Code** - Complete Flutter project (all files needed to run the app)
+2. **Testing Sheet** - Word document with:
+   - Screenshots of all test scenarios
+   - Brief explanation of each test
+   - Evidence that all requirements work correctly
+
+### Submission Structure:
+
+```
+your-repo/
+└── Assignments/
+    └── Assignment3/
+        ├── digital_library/          (complete project folder)
+        │   ├── lib/
+        │   ├── assets/
+        │   ├── pubspec.yaml
+        │   └── ...
+        └── Testing_Sheet.docx        (screenshots + explanations)
+```
+
+**Important:**
+
+- Do NOT zip files
+- Push directly to your private repository
+- Ensure database initialization works on first run
+- Test on a fresh installation before submitting
+
+**Good luck!**

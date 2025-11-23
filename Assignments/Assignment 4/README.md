@@ -1,4 +1,3 @@
-
 # Assignment 4: Digital Library - Web API Integration
 
 **Due Date:** November 22, 2024
@@ -24,6 +23,8 @@ Transform your Digital Library application from using local JSON file storage to
 ### What You'll Build
 
 Replace all JSON file operations with HTTP requests to the live API. **The UI layer stays exactly the same - only the data layer changes.**
+
+**IMPORTANT: You must make the app work exactly as it is currently working. All functionalities should work correctly after the migration to the Web API.**
 
 ### Test Credentials
 
@@ -54,7 +55,7 @@ Replace JSON file operations with DIO HTTP calls in 4 repositories.
 4. Parse response data: `response.data as List`
 5. Keep all method signatures identical
 6. Implement Stream methods by wrapping Futures
-7. Keep CRUD operations as `UnimplementedError`
+7. You must make the app work exactly as it is currently working.
 
 #### Repository Requirements
 

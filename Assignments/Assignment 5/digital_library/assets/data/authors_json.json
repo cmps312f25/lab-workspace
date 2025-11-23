@@ -1,0 +1,51 @@
+[
+  {
+    "id": "auth001",
+    "name": "Dr. Sarah Johnson",
+    "profileImageUrl": null,
+    "biography": "Computer Science Professor at MIT specializing in algorithms and data structures. Published over 50 research papers in top-tier conferences.",
+    "birthYear": 1975
+  },
+  {
+    "id": "auth002",
+    "name": "Prof. Ahmed Al-Zahra",
+    "profileImageUrl": null,
+    "biography": "Software Engineering expert with 20 years of industry experience. Former lead architect at Google and Microsoft.",
+    "birthYear": 1970
+  },
+  {
+    "id": "auth003",
+    "name": "Dr. Maria Rodriguez",
+    "profileImageUrl": null,
+    "biography": "Machine Learning researcher and author of several bestselling AI textbooks. Currently professor at Stanford University.",
+    "birthYear": 1982
+  },
+  {
+    "id": "auth004",
+    "name": "James Thompson",
+    "profileImageUrl": null,
+    "biography": "Tech entrepreneur and author specializing in mobile app development. Founded three successful startups in Silicon Valley.",
+    "birthYear": 1978
+  },
+  {
+    "id": "auth005",
+    "name": "Dr. Fatima Al-Rashid",
+    "profileImageUrl": null,
+    "biography": "Cybersecurity expert and consultant for Fortune 500 companies. Author of multiple books on network security and cryptography.",
+    "birthYear": 1973
+  },
+  {
+    "id": "auth006",
+    "name": "Michael Chen",
+    "profileImageUrl": null,
+    "biography": "Database systems architect and performance optimization specialist. Has designed systems handling millions of transactions daily.",
+    "birthYear": 1985
+  },
+  {
+    "id": "auth007",
+    "name": "Dr. Lisa Williams",
+    "profileImageUrl": null,
+    "biography": "Human-Computer Interaction researcher focusing on user experience design and accessibility in digital systems.",
+    "birthYear": 1980
+  }
+]
