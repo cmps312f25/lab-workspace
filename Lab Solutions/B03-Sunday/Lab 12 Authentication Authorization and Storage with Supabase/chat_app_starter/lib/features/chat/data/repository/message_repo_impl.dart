@@ -120,21 +120,7 @@ class MessageRepoImpl implements MessageRepository {
     // 3. Get public URL:
     //    final publicUrl = _client.storage.from(storageBucket).getPublicUrl(fileName);
     // 4. Return the URL
-    // throw UnimplementedError('TODO: Implement uploadImage');
-
-    // 1. Create unique filename
-    final fileName =
-        '${DateTime.now().millisecondsSinceEpoch}_${imageFile.path.split("/").last}';
-
-    // 2. Upload it
-
-    await _client.storage
-        .from(storageBucket)
-        .upload(fileName, imageFile, fileOptions: const FileOptions());
-
-    final imageUrl = _client.storage.from(storageBucket).getPublicUrl(fileName);
-
-    return imageUrl;
+    throw UnimplementedError('TODO: Implement uploadImage');
   }
 
   /// TODO 5: Send message with image attachment
@@ -149,12 +135,8 @@ class MessageRepoImpl implements MessageRepository {
   Future<void> sendMessageWithImage(Message message, File imageFile) async {
     // TODO: Implement send message with image
     // 1. Upload the image and get URL: final imageUrl = await uploadImage(imageFile);
-    final imageURl = await uploadImage(imageFile);
-    final messageToSend = message.copyWith(imageUrl: imageURl);
-    await sendMessage(messageToSend);
-
     // 2. Create message with image: final messageWithImage = message.copyWith(imageUrl: imageUrl);
     // 3. Send the message: await sendMessage(messageWithImage);
-    // throw UnimplementedError('TODO: Implement sendMessageWithImage');
+    throw UnimplementedError('TODO: Implement sendMessageWithImage');
   }
 }

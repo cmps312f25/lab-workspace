@@ -1,0 +1,44 @@
+name: chat_app
+description: 'Chat App - CMPS312 Mobile App Dev - Authentication, Authorization & Cloud Storage Lab'
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # Navigation
+  go_router: ^16.2.4
+
+  # State Management
+  flutter_riverpod: ^3.0.3
+
+  # Environment Variables
+  flutter_dotenv: ^5.2.1
+
+  # Supabase Backend (Database + Auth + Realtime + Storage)
+  supabase_flutter: ^2.9.2
+
+  # Image Picker (for Day 4 - Storage)
+  image_picker: ^1.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  config:
+    enable-lldb-debugging: false
+
+  uses-material-design: true
+
+  assets:
+    - .env
