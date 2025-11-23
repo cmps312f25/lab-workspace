@@ -68,7 +68,37 @@ class AuthRepoImpl implements AuthRepository {
     // 2. Get the user from response.user
     // 3. Create AppUser and insert into profiles table
     // 4. Return the AppUser
-    throw UnimplementedError('TODO: Implement signUp');
+    // throw UnimplementedError('TODO: Implement signUp');
+
+    try {
+      // create the user
+      final response = await _client.auth.signUp(
+        email: email,
+        password: password,
+        data: {"display_name": displayName},
+      );
+
+      // did this operation succeed
+      if (response.user == null) {
+        throw ("Unable to SignUp the user");
+      }
+
+      // we have a user created
+      // create the profile for the user
+
+      final appUser = AppUser(
+        id: response.user!.id,
+        email: response.user!.email!,
+        displayName: response.user!.appMetadata["display_name"],
+      );
+
+      // insert into the profile table
+      await _client.from(profilesTable).insert(appUser.toJson());
+
+      return appUser;
+    } catch (e) {
+      throw ("Unable to SignUp User $e");
+    }
   }
 
   /// TODO 2: Implement Sign In
