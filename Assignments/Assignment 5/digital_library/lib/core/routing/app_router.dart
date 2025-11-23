@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import '../../features/auth/presentation/screens/login_screen.dart';
+import '../../features/auth/presentation/screens/signup_screen.dart';
 import '../../features/borrowing/presentation/screens/home_screen.dart';
 import '../../features/borrowing/presentation/screens/transactions_screen.dart';
 import '../../features/library_items/presentation/screens/library_items_screen.dart';
@@ -15,6 +16,12 @@ final router = GoRouter(
     GoRoute(
       path: '/login',
       builder: (context, state) => const LoginScreen(),
+    ),
+
+    // Signup route (outside shell - no bottom nav)
+    GoRoute(
+      path: '/signup',
+      builder: (context, state) => const SignupScreen(),
     ),
 
     // Shell route with bottom navigation

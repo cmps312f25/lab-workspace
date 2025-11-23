@@ -108,6 +108,39 @@ class LibraryItemsNotifier extends AsyncNotifier<LibraryItemsState> {
       return LibraryItemsState(items: items);
     });
   }
+
+  /// Add a new book
+  Future<bool> addItem(Book book) async {
+    try {
+      await _libraryRepo.addItem(book);
+      await refresh();
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /// Update an existing book
+  Future<bool> updateItem(Book book) async {
+    try {
+      await _libraryRepo.updateItem(book);
+      await refresh();
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /// Delete a book
+  Future<bool> deleteItem(String id) async {
+    try {
+      await _libraryRepo.deleteItem(id);
+      await refresh();
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
 }
 
 /// Provider for library items notifier
