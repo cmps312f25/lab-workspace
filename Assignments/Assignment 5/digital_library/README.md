@@ -33,6 +33,7 @@ Run the provided JSON-based app and interact with **all features**:
 1. Create a Supabase project at [supabase.com](https://supabase.com)
 2. Create database tables that match the app's data structure
 3. Set up Row Level Security (RLS) policies
+   - Enable RLS on all tables (books, authors, members, transactions) and create policies that allow only **authenticated users** to perform SELECT, INSERT, UPDATE, and DELETE operations. This ensures unauthenticated users cannot access or modify any data.
 4. Seed your database with sample data
 
 ### Step 3: Integrate Supabase into the App
