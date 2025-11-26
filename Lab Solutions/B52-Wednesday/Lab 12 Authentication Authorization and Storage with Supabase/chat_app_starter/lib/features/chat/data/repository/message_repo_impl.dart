@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:chat_app/features/chat/domain/contracts/message_repo.dart';
 import 'package:chat_app/features/chat/domain/entities/message.dart';
-import 'package:flutter/rendering.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 /// Implementation of MessageRepository using Supabase.
@@ -121,17 +120,7 @@ class MessageRepoImpl implements MessageRepository {
     // 3. Get public URL:
     //    final publicUrl = _client.storage.from(storageBucket).getPublicUrl(fileName);
     // 4. Return the URL
-
-    final fileName =
-        '${DateTime.now().microsecondsSinceEpoch}_${imageFile.path.split("/").last}';
-
-    await _client.storage
-        .from(storageBucket)
-        .upload(fileName, imageFile, fileOptions: const FileOptions());
-
-    final imageUrl = _client.storage.from(storageBucket).getPublicUrl(fileName);
-
-    return imageUrl;
+    throw UnimplementedError('TODO: Implement uploadImage');
   }
 
   /// TODO 5: Send message with image attachment
@@ -148,12 +137,6 @@ class MessageRepoImpl implements MessageRepository {
     // 1. Upload the image and get URL: final imageUrl = await uploadImage(imageFile);
     // 2. Create message with image: final messageWithImage = message.copyWith(imageUrl: imageUrl);
     // 3. Send the message: await sendMessage(messageWithImage);
-    try {
-      final imageUrl = await uploadImage(imageFile);
-      final messageToUpload = message.copyWith(imageUrl: imageUrl);
-      sendMessage(messageToUpload);
-    } catch (e) {
-      debugPrint("$e");
-    }
+    throw UnimplementedError('TODO: Implement sendMessageWithImage');
   }
 }
