@@ -88,7 +88,7 @@ class AuthRepoImpl implements AuthRepository {
       final appUser = AppUser(
         id: response.user!.id,
         email: email,
-        displayName: response.user!.appMetadata['display_name'],
+        displayName: displayName,
       );
 
       // we need to add this user to the profile table
@@ -133,7 +133,7 @@ class AuthRepoImpl implements AuthRepository {
       final appUser = AppUser(
         id: response.user!.id,
         email: email,
-        displayName: response.user!.appMetadata['display_name'],
+        displayName: response.user!.userMetadata?['display_name'] as String?,
       );
 
       return appUser;
