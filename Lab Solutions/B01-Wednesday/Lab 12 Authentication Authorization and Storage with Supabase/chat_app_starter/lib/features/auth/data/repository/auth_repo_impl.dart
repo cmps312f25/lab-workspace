@@ -150,9 +150,7 @@ class AuthRepoImpl implements AuthRepository {
   /// This is the simplest one - just one line of code!
   @override
   Future<void> signOut() async {
-    // TODO: Implement sign out
-    // Just call _client.auth.signOut()
-    throw UnimplementedError('TODO: Implement signOut');
+    await _client.auth.signOut();
   }
 
   /// Get user profile from database (already implemented for you)
